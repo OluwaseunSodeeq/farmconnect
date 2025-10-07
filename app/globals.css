@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --spacing: 4px;
+  --font-body: var(--font-dm-sans), sans-serif;
+
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1440px;
+
+  --color-dark-green: #012f25;
+  --color-card-green: #09614e;
+  --color-main-bg: #ffffff;
+  --color-navbar-bg: #f2f6f4;
+  --color-light-green: #eafff0;
+  --color-yellow: #fdcd31;
+  --color-black: #000000;
+  --testimonialText: #232222;
+
+  --font-satoshi: "Satoshi", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+}
+.clip-slant {
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
+}
+/* :root {
+  font-size: 62.5%;
+} */
+
+/* Custom utility to hide scrollbars while keeping scroll functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}

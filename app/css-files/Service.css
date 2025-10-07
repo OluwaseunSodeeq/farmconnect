@@ -1,0 +1,95 @@
+/* body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+} */
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 80px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 400px;
+  height: 230px;
+  margin-bottom: 180px;
+}
+
+.swiper-slide img {
+  display: block;
+  max-width: 90%;
+  object-fit: cover;
+
+  border-top-left-radius: 8px;
+}
+
+.swiper-slide img:hover {
+  border-top-left-radius: 0px;
+  scale: 1.08;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 786px) {
+  .swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 80px;
+    margin-left: 0; /* Adjust margin for small screens */
+    margin-top: -30px;
+  }
+
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 50%; /* Make slides full width */
+    height: 280px;
+    /* Adjust height for small screens */
+    margin-bottom: 0px;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 90%;
+    height: 90%;
+    border-top-left-radius: 0; /* Remove border radius on small screens */
+  }
+}
+@media (max-width: 540px) {
+  .swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 80px;
+    margin-left: 0; /* Adjust margin for small screens */
+    margin-top: -30px;
+  }
+
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 60%; /* Make slides full width */
+    height: 180px;
+    /* Adjust height for small screens */
+    margin-bottom: 50px;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 90%;
+    height: 90%;
+    border-top-left-radius: 0; /* Remove border radius on small screens */
+  }
+}
+@media (max-width: 400px) {
+  .swiper-slide {
+    margin-bottom: 160px;
+  }
+}
