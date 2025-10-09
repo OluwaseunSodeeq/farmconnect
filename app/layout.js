@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Montserrat } from "next/font/google";
-import RootComponent from "./components/RootComponent";
+import RootComponent from "./Components/RootComponent";
 import { OpenContextProvider } from "./contexts/OpenContext";
 
 const montserrat = Montserrat({

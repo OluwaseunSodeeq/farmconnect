@@ -43,21 +43,24 @@ const Navbar = () => {
     <div
       className={`w-[100%] max-w-[2600px] h-[60px] responsive-header pl-6 pr-20 ${
         isScrolled ? "scrolled" : "no-scrolled"
-      } ${menu ? "bg-white max-h-max" : ""} fixed top-0 z-10`}
+      } ${menu ? "bg-white max-h-max" : ""} fixed top-0  z-10`}
     >
       <header className="h-full w-full box-border flex justify-between items-center">
+        <div className=" relative z-20 lg:w-[140px] lg:h-[70px]">
+
         <Image
           src="/images/logo.png"
           alt="Logo"
-          className={`${
+          className={`mt-0 ${
             isMobile
-              ? "w-[40px] h-[34px]"
-              : "w-[100px] h-[100px] object-cover logo-img"
+            ? "w-[40px] h-[40px]"
+            : "  logo-img"
           } cursor-pointer`}
           width={100}
           height={100}
           onClick={() => {}}
-        />
+          />
+          </div>
 
         {isMobile && (
           <>

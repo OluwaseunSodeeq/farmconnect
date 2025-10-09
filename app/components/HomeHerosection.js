@@ -1,6 +1,5 @@
 "use client";
-
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { sliderData } from "../data";
 import "../css-files/Homeherosection.css";
@@ -9,22 +8,37 @@ const HomeHeroSection = () => {
   const [current, setCurrent] = useState(0);
   const length = sliderData.length;
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev === length - 1 ? 0 : prev + 1));
-    }, 4000);
+  const autoScroll = true;
+  const intervalTime = 5000;
+  const slideInterval = useRef(null);
 
-    return () => clearInterval(interval);
+  // ✅ useCallback ensures the same function reference between renders
+  const nextSlide = useCallback(() => {
+    setCurrent((prev) => (prev === length - 1 ? 0 : prev + 1));
+    console.log("next");
   }, [length]);
 
-  if (!Array.isArray(sliderData) || length === 0) return null;
+  // Set first slide once on mount
+  useEffect(() => {
+    setCurrent(0);
+  }, []);
+
+  // ✅ Handle auto-scroll
+  useEffect(() => {
+    if (autoScroll) {
+      if (slideInterval.current) clearInterval(slideInterval.current);
+      slideInterval.current = setInterval(nextSlide, intervalTime);
+    }
+
+    return () => clearInterval(slideInterval.current);
+  }, [autoScroll, intervalTime, nextSlide]);
 
   return (
     <section className="slider">
       {sliderData.map((slide, index) => (
         <div
-          className={`slide ${index === current ? "current" : ""}`}
           key={index}
+          className={index === current ? "slide current" : "slide"}
         >
           {index === current && (
             <div className="relative w-full h-screen">
@@ -49,10 +63,153 @@ const HomeHeroSection = () => {
 
 export default HomeHeroSection;
 
+
+// "use client";
+// import { useState, useEffect, useRef } from "react";
+// import Image from "next/image";
+// import { sliderData } from "../data";
+// import "../css-files/Homeherosection.css";
+
+// const HomeHeroSection = () => {
+//   const [current, setCurrent] = useState(0);
+//   const length = sliderData.length;
+
+//   const autoScroll = true;
+//   const intervalTime = 5000;
+//   const slideInterval = useRef(null); // persist interval between renders
+
+//   const nextSlide = () => {
+//     setCurrent((prev) => (prev === length - 1 ? 0 : prev + 1));
+//     console.log("next");
+//   };
+
+//   useEffect(() => {
+//     // always start from slide 0
+//     setCurrent(0);
+//   }, []);
+
+//   useEffect(() => {
+//     if (autoScroll) {
+//       // clear any previous interval before starting new one
+//       if (slideInterval.current) clearInterval(slideInterval.current);
+//       slideInterval.current = setInterval(nextSlide, intervalTime);
+//     }
+
+//     // cleanup when component unmounts
+//     return () => clearInterval(slideInterval.current);
+//   }, [autoScroll, intervalTime, length]); // dependencies, not current
+
+//   return (
+//     <section className="slider">
+//       {sliderData.map((slide, index) => (
+//         <div
+//           key={index}
+//           className={index === current ? "slide current" : "slide"}
+//         >
+//           {index === current && (
+//             <div className="relative w-full h-screen">
+//               <Image
+//                 src={slide.image}
+//                 alt={slide.title}
+//                 fill
+//                 style={{ objectFit: "cover" }}
+//                 priority
+//               />
+//               <div className="content">
+//                 <h1>{slide.title}</h1>
+//                 <p>{slide.text}</p>
+//               </div>
+//             </div>
+//           )}
+//         </div>
+//       ))}
+//     </section>
+//   );
+// };
+
+// export default HomeHeroSection;
+
+
+// "use client";
+// import { useState, useEffect } from "react";
+// import Image from "next/image";
+// import { sliderData } from "../data";
+// import "../css-files/Homeherosection.css";
+
+// const HomeHeroSection = () => {
+//   const [current, setCurrent] = useState(0);
+//   const length = sliderData.length;
+
+//   const autoScroll = true;
+//   let slideInterval;
+//   let intervalTime = 5000;
+
+//   const nextSlide = () => {
+//     setCurrent(current === length - 1 ? 0 : current + 1);
+//     console.log("next");
+//   };
+
+//   function auto() {
+//     slideInterval = setInterval(nextSlide, intervalTime);
+//   }
+
+//   useEffect(() => {
+//     setCurrent(0);
+//   }, []);
+
+//   useEffect(() => {
+//     if (autoScroll) {
+//       auto();
+//     }
+//     return () => clearInterval(slideInterval);
+//   }, [current]);
+
+//   // useEffect(() => {
+//   //   const interval = setInterval(() => {
+//   //     setCurrent((prev) => (prev === length - 1 ? 0 : prev + 1));
+//   //   }, 4000);
+
+//   //   return () => clearInterval(interval);
+//   // }, [length]);
+
+//   // if (!Array.isArray(sliderData) || length === 0) return null;
+
+//   return (
+//     <section className="slider">
+//       {sliderData.map((slide, index) => {
+//       return(
+//         <div
+//           // className={`slide ${index === current ? "current" : ""}`}
+//            className={index === current ? "slide current" : "slide"}
+//           key={index}
+//         >
+//           {index === current && (
+//             <div className="relative w-full h-screen">
+//               <Image
+//                 src={slide.image}
+//                 alt={slide.title}
+//                 fill
+//                 style={{ objectFit: "cover" }}
+//                 priority
+//               />
+//               <div className="content">
+//                 <h1>{slide.title}</h1>
+//                 <p>{slide.text}</p>
+//               </div>
+//             </div>
+//           )}
+//         </div>
+//       )})}
+//     </section>
+//   );
+// };
+
+// export default HomeHeroSection;
+
 // // import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai"; // uncomment if needed
 
 // const HomeHerosection = () => {
-//   const [currentSlide, setCurrentSlide] = useState(0);
+//   const [currentSli] = useState(0);
 //   const slideLength = sliderData.length;
 //   const autoScroll = true;
 //   const intervalTime = 5000;

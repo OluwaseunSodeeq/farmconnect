@@ -53,6 +53,8 @@
 }
 .logo-img {
   background-color: transparent;
+  object-fit: cover;
+  padding: 0px;
 }
 .login-btn:hover {
   background-color: white;
