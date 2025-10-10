@@ -1,12 +1,18 @@
 "use client";
 import Image from "next/image";
+import { signIn } from "next-auth/react";
 // import { signInAction } from "../_lib/actions";
 // <form action={signInAction}>
 
 export default function SignInBtn() {
+  const handleGoogleLogin = async () => {
+    await signIn("google", { callbackUrl: "/home" });
+  };
+  
   return (
     <form >
-      <button className="flex items-center gap-6 text-lg border border-primary-300 px-10 py-4 font-medium">
+      <button className="flex items-center gap-6 text-lg border border-primary-300 px-10 py-4 font-medium"
+      onClick={handleGoogleLogin}>
         <Image
           src="https://authjs.dev/img/providers/google.svg"
           alt="Google logo"

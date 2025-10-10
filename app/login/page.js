@@ -1,14 +1,13 @@
 "use client";
 
-import {LoginPage} from "../Components/LoginPage";
+import LoginPage from "../Components/LoginPage";
 
-export default function Page({setAuthentication}) {
+
+export default function Page() {
  
-  
-
   return (
     <div >
-      <LoginPage setAuthentication={setAuthentication} />
+      <LoginPage />
     </div>
   );
 }
