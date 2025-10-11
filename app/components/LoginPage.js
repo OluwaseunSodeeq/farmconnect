@@ -24,7 +24,7 @@ export default function LoginPage() {
         password,
       });
 
-      // console.log("🔵 SignIn result:", result);
+      console.log("🔵 SignIn result:", result);
 
       if (result.error) {
         setError("Invalid email or password");
@@ -41,13 +41,13 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-green-100 via-white to-green-50">
+    <div className=" w-full flex justify-center items-center min-h-screen bg-gradient-to-br from-green-100 via-white to-green-50">
       <form
         onSubmit={handleSubmit}
         className="bg-white border border-gray-200 shadow-lg rounded-2xl px-8 py-10 w-[90%] max-w-md flex flex-col gap-6"
       >
         {/* Logo */}
-        <div className="bg-green-700 flex justify-center">
+        <div className=" rounded-md bg-green-700 flex justify-center">
           <Image
             src="/images/logo.png"
             alt="Logo"
@@ -123,5 +123,3 @@ export default function LoginPage() {
     </div>
   );
 }
-
-
