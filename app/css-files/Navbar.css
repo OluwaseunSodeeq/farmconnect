@@ -1,5 +1,7 @@
 .nav-item {
   position: relative;
+  padding-bottom: 5rem;
+
   
   
 }
@@ -38,6 +40,7 @@
   left: 0;
   background-color: #f8931f;
   transition: width 0.3s;
+  
 }
 
 .nav-item-hover:hover::after {

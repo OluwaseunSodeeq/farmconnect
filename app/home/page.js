@@ -1,50 +1,37 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { HashLoader } from 'react-spinners';
-import { usePathname, useRouter } from 'next/navigation';
-import { useSession } from 'next-auth/react';
-
-import HomeHeroSection from '../Components/HomeHerosection';
-import About from '../Components/About';
-import Testimonial from '../Components/Testimonial';
-import Service from '../Components/Service';
-import Team from '../Components/Team';
+import HomeHeroSection from "../Components/HomeHerosection";
+import About from "../Components/About";
+import Testimonial from "../Components/Testimonial";
+import Service from "../Components/Service";
+import Team from "../Components/Team";
 
 export default function Page() {
-  const [loading, setLoading] = useState(true);
-  const pathname = usePathname();
-  const router = useRouter();
   const { data: session, status } = useSession();
+  const router = useRouter();
 
-  // Scroll to top when route changes
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  // Fake loader
-  useEffect(() => {
-    const timeout = setTimeout(() => setLoading(false), 2000);
-    return () => clearTimeout(timeout);
-  }, []);
-
-  // 🔒 Protect this route: only admins can access
-  useEffect(() => {
-    if (status === 'unauthenticated') {
-      router.push('/'); // redirect to login if not logged in
-    } else if (session && session.user?.role !== 'admin') {
-      router.push('/'); // redirect if not an admin
+    if (status === "unauthenticated") {
+      console.log(status)
+      router.push("/login");
     }
-  }, [status, session, router]);
+  }, [status, router]);
 
-  // Show loader while session or data is loading
-  if (status === 'loading' || loading) {
+   // Show loader while session or data is loading
+  if (status === 'loading') {
     return (
       <div className="flex justify-center items-center h-screen bg-green-400">
         <HashLoader className="text-gray-700" size={80} />
       </div>
     );
   }
+  // if (status === "loading") {
+  //   return <p>Loading...</p>;
+  // }
 
   return (
     <>
@@ -56,6 +43,70 @@ export default function Page() {
     </>
   );
 }
+
+
+// 'use client';
+
+// import React, { useState, useEffect } from 'react';
+// import { HashLoader } from 'react-spinners';
+// import { usePathname, useRouter } from 'next/navigation';
+// import { useSession } from 'next-auth/react';
+
+// import HomeHeroSection from '../Components/HomeHerosection';
+// import About from '../Components/About';
+// import Testimonial from '../Components/Testimonial';
+// import Service from '../Components/Service';
+// import Team from '../Components/Team';
+
+// export default function Page() {
+//   const [loading, setLoading] = useState(true);
+//   const pathname = usePathname();
+//   const router = useRouter();
+//   const { data: session, status } = useSession();
+
+//   // Scroll to top when route changes
+//   useEffect(() => {
+//     window.scrollTo(0, 0);
+//   }, [pathname]);
+
+//   // Fake loader
+//   useEffect(() => {
+//     const timeout = setTimeout(() => setLoading(false), 2000);
+//     return () => clearTimeout(timeout);
+//   }, []);
+
+//   // 🔒 Protect this route: only admins can access
+//   useEffect(() => {
+//     if (status === 'unauthenticated') {
+//       router.push('/'); // redirect to login if not logged in
+//     }
+//     else if (session && session.user?.role !== 'admin') {
+//   router.push('/');
+// }
+//     //  else if (session && session.user?.role !== 'admin') {
+//     //   router.push('/'); // redirect if not an admin
+//     // }
+//   }, [status, session, router]);
+
+//   // Show loader while session or data is loading
+//   if (status === 'loading' || loading) {
+//     return (
+//       <div className="flex justify-center items-center h-screen bg-green-400">
+//         <HashLoader className="text-gray-700" size={80} />
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <>
+//       <HomeHeroSection />
+//       <About />
+//       <Testimonial />
+//       <Service />
+//       <Team />
+//     </>
+//   );
+// }
 
 
 // 'use client';

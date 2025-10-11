@@ -1,123 +1,127 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function LoginPage() {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
-  const handleLogin = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
+    setError(null);
+    setIsLoading(true);
 
-    const res = await signIn("credentials", {
-      redirect: false,
-      email,
-      password,
-    });
+    try {
+      const result = await signIn("credentials", {
+        redirect: false,
+        email,
+        password,
+      });
 
-    if (res?.error) {
-      setError("Invalid email or password. Only admins can log in.");
-    } else {
-      router.push("/home");
+      // console.log("🔵 SignIn result:", result);
+
+      if (result.error) {
+        setError("Invalid email or password");
+        setIsLoading(false);
+      } else {
+        console.log("✅ Login successful, redirecting...");
+        router.push("/home");
+      }
+    } catch (err) {
+      console.error("❌ Login failed:", err);
+      setError("Something went wrong. Please try again.");
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="flex justify-center items-center flex-col min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-sm">
-        <h2 className="text-2xl font-semibold text-center mb-6">Admin Login</h2>
-        {error && <p className="text-red-500 text-center text-sm mb-4">{error}</p>}
+    <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-green-100 via-white to-green-50">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white border border-gray-200 shadow-lg rounded-2xl px-8 py-10 w-[90%] max-w-md flex flex-col gap-6"
+      >
+        {/* Logo */}
+        <div className="bg-green-700 flex justify-center">
+          <Image
+            src="/images/logo.png"
+            alt="Logo"
+            width={120}
+            height={60}
+            priority
+            className="object-contain"
+          />
+        </div>
 
-        <form onSubmit={handleLogin} className="space-y-4">
-          <input
-            type="email"
-            placeholder="Email address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full p-2 border rounded-md focus:ring-2 focus:ring-green-500"
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full p-2 border rounded-md focus:ring-2 focus:ring-green-500"
-            required
-          />
-          <button
-            type="submit"
-            className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition duration-200"
-          >
-            Login
-          </button>
-        </form>
-      </div>
+        <h1 className="text-2xl font-bold text-center text-green-700">
+          Admin Login
+        </h1>
+
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+          className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+          required
+        />
+
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+          required
+        />
+
+        {error && <p className="text-red-500 text-center text-sm">{error}</p>}
+
+        <button
+          type="submit"
+          disabled={isLoading}
+          className={`flex justify-center items-center gap-2 w-full text-white font-semibold py-3 rounded-md transition duration-200 ${
+            isLoading
+              ? "bg-green-400 cursor-not-allowed"
+              : "bg-green-600 hover:bg-green-800"
+          }`}
+        >
+          {isLoading ? (
+            <>
+              <svg
+                className="animate-spin h-5 w-5 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                ></path>
+              </svg>
+              <span>Loading...</span>
+            </>
+          ) : (
+            "Login"
+          )}
+        </button>
+      </form>
     </div>
   );
 }
 
 
-// "use client";
-
-// import { useState } from "react";
-// // import { useRouter } from "next/navigation";
-
-// export function LoginPage({ setAuthentication }) {
-//   // const router = useRouter();
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [error, setError] = useState("");
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-
-//     // Simple dummy login
-//     if (email === "admin@example.com" && password === "password123") {
-//       localStorage.setItem("user", JSON.stringify({ email }));
-//       setAuthentication(true);
-//       // router.push("/home");
-//     } else {
-//       setError("Invalid credentials. Try again.");
-//     }
-//   };
-
-//   return (
-//     <div className="flex justify-center items-center min-h-screen bg-gray-100">
-//       <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-sm">
-//         <h2 className="text-2xl font-semibold text-center mb-6">Login</h2>
-//         {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
-
-//         <form onSubmit={handleSubmit} className="space-y-4">
-//           <input
-//             type="email"
-//             placeholder="Email"
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//             className="w-full p-2 border rounded-md focus:ring-2 focus:ring-green-500"
-//             required
-//           />
-//           <input
-//             type="password"
-//             placeholder="Password"
-//             value={password}
-//             onChange={(e) => setPassword(e.target.value)}
-//             className="w-full p-2 border rounded-md focus:ring-2 focus:ring-green-500"
-//             required
-//           />
-//           <button
-//             type="submit"
-//             className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition duration-200"
-//           >
-//             Login
-//           </button>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// }

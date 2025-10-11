@@ -7,12 +7,12 @@ import { OpenContextProvider } from "../contexts/OpenContext";
 
 export default function ClientLayout({ children }) {
   return (
-    <SessionProvider>
-      <OpenContextProvider>
+    <OpenContextProvider>
+        <SessionProvider>
         <main>
           <RootComponent>{children}</RootComponent>
         </main>
-      </OpenContextProvider>
     </SessionProvider>
+      </OpenContextProvider>
   );
 }

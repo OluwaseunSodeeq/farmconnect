@@ -1,3 +1,11 @@
 {
-  "cSpell.words": ["CLEMESET", "Navbody", "navs"]
+  "cSpell.words": [
+    "CLEMESET",
+    "Navbody",
+    "navs"
+  ],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.documentSelectors": [
+    ""
+  ]
 }

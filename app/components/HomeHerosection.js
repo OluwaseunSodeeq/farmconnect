@@ -52,6 +52,10 @@ const HomeHeroSection = () => {
               <div className="content">
                 <h1>{slide.title}</h1>
                 <p>{slide.text}</p>
+
+                <hr />
+
+                <button className="--btn --btn-primary border rounded-sm cursor-pointer py-1 px-2">Go to Dashboard</button>
               </div>
             </div>
           )}
