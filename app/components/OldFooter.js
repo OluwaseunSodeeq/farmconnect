@@ -2,7 +2,7 @@ import { Mail, Facebook, Twitter, Instagram } from "lucide-react";
 import Button from "./Button";
 import Image from "next/image";
 
-export default function Footer() {
+export default function OldFooter() {
   return (
     <footer className="bg-dark-green text-main-bg px-6 md:px-16 lg:px-24 py-12">
       {/* Top message row */}

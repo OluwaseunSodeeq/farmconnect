@@ -1,4 +1,4 @@
-function Parent({ setAuthentication, children }) {
+function Parent({ children }) {
     return (
         <div>{children}</div>
     );

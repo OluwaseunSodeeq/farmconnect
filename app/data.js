@@ -45,21 +45,21 @@ const serviceData = [
  const sliderData = [
   {
     image: "/images/hero1jpg.jpg",
-     title: "Fresh Organic Products",
-    // : "Your trusted source for healthy foods.",
-   text: "This is the description of slide one Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi quos quas, voluptatum nesciunt illum exercitationem.",
+    title: "Fresh Organic Products",
+    text: "Discover a wide variety of farm-fresh organic products carefully grown without chemicals or additives, ensuring your family enjoys pure, healthy, and naturally nutritious food straight from the soil.",
   },
   {
     image: "/images/hero2.jpg",
-   title: "Farm to Table Freshness",
-    text: "Experience nature’s best every day.",
+    title: "Farm to Table Freshness",
+    text: "Experience the true taste of freshness with produce harvested at its peak and delivered directly from our local farms to your table, preserving quality, flavor, and sustainability in every bite.",
   },
   {
     image: "https://i.ibb.co/8r7WYJh/slide3.jpg",
     title: "Sustainable Agriculture",
-    text: "Empowering farmers for a better tomorrow.",
+    text: "We are committed to empowering farmers through eco-friendly and innovative farming methods that protect the environment, promote biodiversity, and secure a greener future for generations to come.",
   },
 ];
+
 
 
   export {serviceData,sliderData}

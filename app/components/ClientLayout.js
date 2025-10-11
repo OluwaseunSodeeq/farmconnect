@@ -2,8 +2,8 @@
 
 import React from "react";
 import { SessionProvider } from "next-auth/react";
-import RootComponent from "./RootComponent"; // 
 import { OpenContextProvider } from "../contexts/OpenContext";
+import RootComponent from "./RootComponent";
 
 export default function ClientLayout({ children }) {
   return (
