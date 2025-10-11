@@ -4,7 +4,7 @@ import Image from "next/image";
 import { sliderData } from "../data";
 import "../css-files/Homeherosection.css";
 
-const HomeHeroSection = () => {
+const HomeHerosection = () => {
   const [current, setCurrent] = useState(0);
   const length = sliderData.length;
 
@@ -65,7 +65,7 @@ const HomeHeroSection = () => {
   );
 };
 
-export default HomeHeroSection;
+export default HomeHerosection;
 
 
 // "use client";
