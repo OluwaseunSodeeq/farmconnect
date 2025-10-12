@@ -1,50 +1,49 @@
 
 const serviceData = [
     {
-      imageUrl: 'https://demo2.themelexus.com/farmor/wp-content/uploads/2023/09/sv-04.jpg',
+      imageUrl: '/images/sv-04.jpg',
       altText: 'Dairy Products',
       linkText: 'Dairy Products',
     },
     {
-      imageUrl: 'https://demo2.themelexus.com/farmor/wp-content/uploads/2023/09/sv-1.jpg',
+      imageUrl: '/images/sv-1.jpg',
       altText: 'Agriculture production',
       linkText: 'Agriculture production',
     },
     {
-      imageUrl: 'https://demo2.themelexus.com/farmor/wp-content/uploads/2023/09/sv-2.jpg',
+      imageUrl: '/images/sv-2.jpg',
       altText: 'Organic products',
       linkText: 'Organic products',
     },
     {
-      imageUrl: 'https://demo2.themelexus.com/farmor/wp-content/uploads/2023/09/sv-3.jpg',
+      imageUrl: '/images/sv-3.jpg',
       altText: 'Fresh vegetables',
       linkText: 'Fresh vegetables',
     },
     {
-      imageUrl: 'https://demo2.themelexus.com/farmor/wp-content/uploads/2023/09/sv-05.jpg',
+      imageUrl: '/images/sv-05.jpg',
       altText: 'Water Managment',
       linkText: 'Water Managment',
     },
     {
-      imageUrl: 'https://demo2.themelexus.com/farmor/wp-content/uploads/2023/09/sv-06.jpg',
+      imageUrl: '/images/sv-06.jpg',
       altText: 'Vegetables Firms',
       linkText: 'Vegetables Firms',
     },
     {
-      imageUrl: 'https://demo2.themelexus.com/farmor/wp-content/uploads/2023/09/sv-07.jpg',
+      imageUrl: '/images/sv-07.jpg',
       altText: 'Harvest Incentive',
       linkText: 'Harvest Incentive',
     },
     {
-      imageUrl: 'https://demo2.themelexus.com/farmor/wp-content/uploads/2023/09/sv-08.jpg',
+      imageUrl: '/images/sv-08.jpg',
       altText: 'Farm House',
       linkText: 'Farm House',
     },
   ];
 
  const sliderData = [
-  {
-    image: "/images/hero1jpg.jpg",
+  {image:"/images/hero1.jpg",
     title: "Fresh Organic Products",
     text: "Discover a wide variety of farm-fresh organic products carefully grown without chemicals or additives, ensuring your family enjoys pure, healthy, and naturally nutritious food straight from the soil.",
   },
@@ -54,7 +53,7 @@ const serviceData = [
     text: "Experience the true taste of freshness with produce harvested at its peak and delivered directly from our local farms to your table, preserving quality, flavor, and sustainability in every bite.",
   },
   {
-    image: "https://i.ibb.co/8r7WYJh/slide3.jpg",
+    image: "/images/hero4.jpg",
     title: "Sustainable Agriculture",
     text: "We are committed to empowering farmers through eco-friendly and innovative farming methods that protect the environment, promote biodiversity, and secure a greener future for generations to come.",
   },

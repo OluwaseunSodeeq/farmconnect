@@ -3,43 +3,52 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { HashLoader } from 'react-spinners';
+import { HashLoader } from "react-spinners";
+
+import Navbar from "../components/Navbar";
 import HomeHerosection from "../components/HomeHerosection";
-import About from "../components/About";
+import AboutSection from "../components/AboutSection";
 import Testimonial from "../components/Testimonial";
 import Service from "../components/Service";
 import Team from "../components/Team";
+import Footer from "../components/Footer";
 
-export default function Page() {
+export default function HomePage() {
   const { data: session, status } = useSession();
   const router = useRouter();
 
+  // 🚀 Redirect to login if not authenticated
   useEffect(() => {
     if (status === "unauthenticated") {
-      console.log(status)
-      router.push("/login");
+      router.replace("/login"); // use replace() to prevent going back
     }
   }, [status, router]);
 
-   // Show loader while session or data is loading
-  if (status === 'loading') {
+  // 🌀 Show loader while checking session
+  if (status === "loading") {
     return (
       <div className="flex justify-center items-center h-screen bg-green-400">
-        <HashLoader className="text-gray-700" size={80} />
+        <HashLoader color="#ffffff" size={80} />
       </div>
     );
   }
-  // if (status === "loading") {
-  //   return <p>Loading...</p>;
-  // }
 
-  return (
-    <>
-      <HomeHerosection />
-      <About />
-      <Testimonial />
-      <Service />
-      <Team/>
-    </>
-  );
+  // ✅ Show home page content only when authenticated
+  if (status === "authenticated") {
+    return (
+      <section>
+        <Navbar />
+        <HomeHerosection />
+        <AboutSection />
+        <Testimonial />
+        <Service />
+        <Team />
+        <Footer />
+      </section>
+    );
+  }
+
+  return null;
 }
+
+

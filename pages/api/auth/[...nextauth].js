@@ -2,11 +2,11 @@ import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import axios from "axios";
 
-console.log("🧩 ENV CHECK:", {
-  NEXTAUTH_URL: process.env.NEXTAUTH_URL,
-  NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET ? "✅ loaded" : "❌ missing",
-  POSTMAN_API_URL: process.env.POSTMAN_API_URL,
-});
+// console.log("🧩 ENV CHECK:", {
+//   NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+//   NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET ? "✅ loaded" : "❌ missing",
+//   POSTMAN_API_URL: process.env.POSTMAN_API_URL,
+// });
 
 export default NextAuth({
   debug: true,
@@ -36,7 +36,7 @@ export default NextAuth({
             }
           );
 
-        //   console.log("🟢 API Response:", res.data);
+          console.log("🟢 API Response:", res.data);
 
           // Your API returns: { message, user, token }
           const { user, token } = res.data;
@@ -48,7 +48,7 @@ export default NextAuth({
               name: user.fullname,
               email: user.email,
               role: user.role,
-              accessToken: token, // we’ll include this in the session for API calls
+              accessToken: token,
             };
           }
 

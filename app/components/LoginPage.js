@@ -47,16 +47,16 @@ export default function LoginPage() {
         className="bg-white border border-gray-200 shadow-lg rounded-2xl px-8 py-10 w-[90%] max-w-md flex flex-col gap-6"
       >
         {/* Logo */}
-        <div className=" rounded-md bg-green-700 flex justify-center">
-          <Image
-            src="/images/logo.png"
-            alt="Logo"
-            width={120}
-            height={60}
-            priority
-            className="object-contain"
-          />
-        </div>
+       <div className="rounded-md bg-green-700 flex justify-center">
+  <Image
+    src="/images/logo.png"
+    alt="Logo"
+    width={120}
+    height={60}
+    priority
+    className="object-contain w-auto h-auto"
+  />
+</div>
 
         <h1 className="text-2xl font-bold text-center text-green-700">
           Admin Login
