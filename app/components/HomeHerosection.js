@@ -3,6 +3,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { sliderData } from "../data";
 import "../css-files/Homeherosection.css";
+import Link from "next/link";
 
 const HomeHerosection = () => {
   const [current, setCurrent] = useState(0);
@@ -55,7 +56,9 @@ const HomeHerosection = () => {
 
                 <hr />
 
-                <button className="--btn --btn-primary border rounded-sm cursor-pointer py-1 px-2">Go to Dashboard</button>
+                <Link href="/dashboard">
+                <button  className="--btn --btn-primary border-l-2 border-r-2 rounded-sm cursor-pointer py-1 px-2 ">Go to Dashboard</button>
+                </Link>
               </div>
             </div>
           )}

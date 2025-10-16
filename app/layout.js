@@ -1,6 +1,6 @@
-import ClientLayout from "./components/ClientLayout";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
+import ClientLayout from "./components/ClientLayout";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
