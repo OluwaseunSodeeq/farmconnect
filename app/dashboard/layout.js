@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Sidebar from "../dashboardcomponents/Sidebar";
 import Wrapper from "../components/Wrapper";
-import TopNav  from "../dashboardcomponents/TopNav";
+import Sidebar from "../dashboardcomponents/Sidebar";
+import { TopNavigation } from "../dashboardcomponents/TopNavigation";
 
 export default function DashboardLayout({ children }) {
   const [isOpen, setIsOpen] = useState(true);
@@ -20,7 +20,7 @@ export default function DashboardLayout({ children }) {
 
         {/* Main Content */}
         <div className="flex-1 flex flex-col ml-64">
-          <TopNav toggleSidebar={toggleSidebar} />
+          <TopNavigation toggleSidebar={toggleSidebar} />
           <main className="flex-1 p-6">{children}</main>
         </div>
       </div>
