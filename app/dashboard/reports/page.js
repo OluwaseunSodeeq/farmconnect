@@ -1,4 +1,5 @@
-import React from 'react';
+"use client";
+import * as React from "react";
 import {
   Calendar,
   Download,
@@ -9,22 +10,22 @@ import {
   ShoppingCart, 
 } from 'lucide-react';
 import {
-//   BarChart,
-//   Bar,
-  LineChart,
-  Line,
   XAxis,
   YAxis,
+  LineChart,
+  Line,
   CartesianGrid,
   Tooltip,
   Legend,
   ResponsiveContainer,
 } from 'recharts';
+
 import { Card, CardContent, CardHeader, CardTitle } from '../../ui/Card';
 import { Badge } from '../../ui/Badge';
 import { Label } from '../../ui/Label';
 import { Button } from '../../ui/Button';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, } from '../../ui/Select';
+import { Select, SelectValue, SelectContent, SelectItem, SelectTrigger } from '../../ui/Select';
+
 
 
 // Report data

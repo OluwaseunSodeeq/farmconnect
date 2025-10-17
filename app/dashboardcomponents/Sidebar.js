@@ -63,7 +63,6 @@ export default function Sidebar({ isOpen }) {
             const isActive =
               pathname === `/dashboard/${id}` ||
               (pathname === "/dashboard" && id === "");
-            console.log("Pathname:",pathname,"isActive:",isActive);
             return (
               <Link
                 key={id}
