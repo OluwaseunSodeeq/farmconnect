@@ -1,15 +1,4 @@
 import React from 'react';
-// import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-// import { Badge } from '@/components/ui/badge';
-// import { Button } from '@/components/ui/button';
-// import { Label } from '@/components/ui/label';
-// import {
-//   Select,
-//   SelectContent,
-//   SelectItem,
-//   SelectTrigger,
-//   SelectValue,
-// } from '@/components/ui/select';
 import {
   Calendar,
   Download,
@@ -17,11 +6,11 @@ import {
   TrendingUp,
   Users,
   Package,
-  ShoppingCart,
+  ShoppingCart, 
 } from 'lucide-react';
 import {
-  BarChart,
-  Bar,
+//   BarChart,
+//   Bar,
   LineChart,
   Line,
   XAxis,
@@ -33,9 +22,10 @@ import {
 } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle } from '../../ui/Card';
 import { Badge } from '../../ui/Badge';
-import { Label } from '../../dashboardcomponents/Label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../dashboardcomponents/Select';
+import { Label } from '../../ui/Label';
 import { Button } from '../../ui/Button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../ui/Select';
+
 
 // Report data
 const reportTypes = [
