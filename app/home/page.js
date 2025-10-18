@@ -24,7 +24,6 @@ export default function HomePage() {
     }
   }, [status, router]);
 
-  // 🌀 Show loader while checking session
   if (status === "loading") {
     return (
       <div className="flex justify-center items-center h-screen bg-green-400">
