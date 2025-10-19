@@ -55,8 +55,8 @@ export default function Sidebar({ isOpen }) {
       </div>
 
       {/* Menu Section */}
-      <nav className="p-4 overflow-y-auto h-[calc(100vh-100px)]">
-        <div className="space-y-1">
+      <nav className="relative p-4 overflow-y-auto h-[calc(100vh-100px)]">
+        <div className="space-y-1 ">
           {menuItems.map(({ id, label, icon: Icon }) => {
            
             const isActive =
@@ -66,12 +66,12 @@ export default function Sidebar({ isOpen }) {
               <Link
                 key={id}
                 href={`/dashboard/${id}`}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${id === "settings" 
+                className={` flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${id === "settings" 
                     ? "absolute bottom-2"
                     : "text-gray-600 hover:bg-gray-50"} ${
                   isActive 
-                    ? "bg-[#2ECC71] text-white shadow-md"
-                    : "text-gray-600 hover:bg-gray-50"
+                    ? "w-[90%] bg-[#2ECC71] text-white shadow-md"
+                    : "w-full text-gray-600 hover:bg-gray-50"
                 }`}
               >
                 <Icon className="w-5 h-5" />

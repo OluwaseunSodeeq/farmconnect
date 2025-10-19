@@ -14,7 +14,7 @@ export default function DashboardLayout({ children }) {
 
   return (
     <Wrapper>
-      <div className="flex min-h-screen bg-gradient-to-br from-green-100 via-white to-green-50">
+      <div className="flex min-h-screen bg-gradient-to-tr to-green-100 via-white from-green-50">
         {/* Sidebar */}
         <Sidebar isOpen={isOpen} />
 
