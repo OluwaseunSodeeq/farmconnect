@@ -1,7 +1,15 @@
 {
   "compilerOptions": {
+    "types": [],
     "paths": {
       "@/*": ["./src/*"]
     }
   }
 }
+// {
+//   "compilerOptions": {
+//     "paths": {
+//       "@/*": ["./src/*"]
+//     }
+//   }
+// }
