@@ -14,7 +14,7 @@ export default NextAuth({
             body: JSON.stringify(credentials),
             cache: "no-store",
           });
-          console.log("⏱ API Response Time:", Date.now() - start, "ms");
+          // console.log("⏱ API Response Time:", Date.now() - start, "ms");
 
           if (!res.ok) return null;
 

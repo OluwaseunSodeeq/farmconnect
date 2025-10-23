@@ -62,7 +62,7 @@ export function SelectContent({ className, children, position = "popper", ...pro
           className={cn(
             "p-1",
             position === "popper" &&
-              "h-[var(--radix-select-trigger-height)] min-w-[var(--radix-select-trigger-width)]"
+              "h-[(--radix-select-trigger-height)] min-w-[(--radix-select-trigger-width)]"
           )}
         >
           {children}
@@ -90,7 +90,7 @@ export function SelectItem({ className, children, ...props }) {
       className={cn(
         "relative flex w-full cursor-default select-none items-center gap-2 rounded-sm py-1.5 pl-2 pr-8 text-sm " +
           "focus:bg-accent focus:text-accent-foreground " +
-          "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+          "data-disabled:pointer-events-none data-disabled:opacity-50",
         className
       )}
       {...props}
