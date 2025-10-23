@@ -120,10 +120,10 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              href="/projects"
+              href="/dashboard"
               className={`${isScrolled ? "nav-item" : "nav-item-hover"}`}
             >
-              Projects
+              Dashboard
             </Link>
           </li>
           <li>

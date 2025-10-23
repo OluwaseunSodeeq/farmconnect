@@ -1,41 +1,39 @@
+// pages/api/auth/[...nextauth].js
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 export default NextAuth({
   providers: [
     CredentialsProvider({
-      name: "Credentials",
       async authorize(credentials) {
         try {
-          const start = Date.now();
           const res = await fetch(process.env.POSTMAN_API_URL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(credentials),
-            cache: "no-store",
           });
-          // console.log("⏱ API Response Time:", Date.now() - start, "ms");
 
-          if (!res.ok) return null;
+          const data = await res.json();
 
-          const { user, token } = await res.json();
+          if (!res.ok || !data.user) {
+            return null; // ❌ invalid credentials
+          }
+
+          // ✅ Valid login
           return {
-            id: user.id,
-            name: user.fullname,
-            email: user.email,
-            role: user.role,
-            accessToken: token,
+            id: data.user.id,
+            name: data.user.fullname,
+            email: data.user.email,
+            role: data.user.role,
+            accessToken: data.token, // ✅ store token correctly
           };
-        } catch {
+        } catch (error) {
           return null;
         }
       },
     }),
   ],
-  session: {
-    strategy: "jwt",
-    maxAge: 24 * 60 * 60,
-  },
+  session: { strategy: "jwt" },
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
@@ -45,7 +43,7 @@ export default NextAuth({
     },
     async session({ session, token }) {
       session.user = token;
-      session.accessToken = token.accessToken;
+      session.accessToken = token.accessToken; // ✅ Consistent token path
       return session;
     },
   },
@@ -53,6 +51,63 @@ export default NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
 });
 
+// ===============================================
+
+// import NextAuth from "next-auth";
+// import CredentialsProvider from "next-auth/providers/credentials";
+
+// export default NextAuth({
+//   providers: [
+//     CredentialsProvider({
+//       name: "Credentials",
+//       async authorize(credentials) {
+//         try {
+//           const start = Date.now();
+//           const res = await fetch(process.env.POSTMAN_API_URL, {
+//             method: "POST",
+//             headers: { "Content-Type": "application/json" },
+//             body: JSON.stringify(credentials),
+//             cache: "no-store",
+//           });
+//           // console.log("⏱ API Response Time:", Date.now() - start, "ms");
+
+//           if (!res.ok) return null;
+
+//           const { user, token } = await res.json();
+//           return {
+//             id: user.id,
+//             name: user.fullname,
+//             email: user.email,
+//             role: user.role,
+//             accessToken: token,
+//           };
+//         } catch {
+//           return null;
+//         }
+//       },
+//     }),
+//   ],
+//   session: {
+//     strategy: "jwt",
+//     maxAge: 24 * 60 * 60,
+//   },
+//   callbacks: {
+//     async jwt({ token, user }) {
+//       if (user) {
+//         token = { ...token, ...user };
+//       }
+//       return token;
+//     },
+//     async session({ session, token }) {
+//       session.user = token;
+//       session.accessToken = token.accessToken;
+//       return session;
+//     },
+//   },
+//   pages: { signIn: "/" },
+//   secret: process.env.NEXTAUTH_SECRET,
+// });
+// ================================================
 // import NextAuth from "next-auth";
 // import CredentialsProvider from "next-auth/providers/credentials";
 

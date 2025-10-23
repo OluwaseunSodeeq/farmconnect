@@ -26,17 +26,17 @@ const serviceData = [
       linkText: 'Water Managment',
     },
     {
-      imageUrl: '/images/sv-06.jpg',
+      imageUrl: '/images/sv-3.jpg',
       altText: 'Vegetables Firms',
       linkText: 'Vegetables Firms',
     },
     {
-      imageUrl: '/images/sv-07.jpg',
+      imageUrl: '/images/sv-1.jpg',
       altText: 'Harvest Incentive',
       linkText: 'Harvest Incentive',
     },
     {
-      imageUrl: '/images/sv-08.jpg',
+      imageUrl: '/images/sv-05.jpg',
       altText: 'Farm House',
       linkText: 'Farm House',
     },
