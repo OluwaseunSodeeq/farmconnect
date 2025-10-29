@@ -43,16 +43,16 @@ export default function Header() {
     <div className="w-full shadow-md ">
       <Wrapper bg={bg}>
         <div>
-          <div className="  flex justify-between items-center px-[1rem] xl:px-[5rem] py-3.5  2xl:px-[7rem]">
+          <div className="  flex justify-between items-center px-4 xl:px-20 py-3.5  2xl:px-28">
             <div className=" block xl:hidden">
               <Logo />
             </div>
             <Nav nav={navs} />
-            <div className="hidden xl:block xl:ml-[5rem]">
+            <div className="hidden xl:block xl:ml-20">
               <Logo />
             </div>
 
-            <div className="hidden  xl:flex gap-[2rem]">
+            <div className="hidden  xl:flex gap-8">
               <DropDown options={dropDown1} />
               <DropDown options={dropDown2} />
               <Button btnBg={btnBg} textColor={bg}>
