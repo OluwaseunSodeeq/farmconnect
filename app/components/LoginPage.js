@@ -17,25 +17,26 @@ export default function LoginPage() {
     router.prefetch("/home");
   }, [router]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError(null);
-    setIsLoading(true);
 
-    const result = await signIn("credentials", {
-      redirect: false,
-      email,
-      password,
-    });
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setError(null);
+  setIsLoading(true);
 
-    if (result?.error) {
-      setError("Invalid email or password");
-      setIsLoading(false);
-    } else {
-      // ✅ Faster redirection
-      router.replace("/home");
-    }
-  };
+  const result = await signIn("credentials", {
+    redirect: false,
+    email,
+    password,
+  });
+
+  if (result?.error) {
+    setError("Invalid email or password");
+    setIsLoading(false);
+  } else {
+    setError(null); 
+    router.replace("/home"); // ✅ Redirect now
+  }
+};
 
   return (
     <div className="w-full flex justify-center items-center min-h-screen bg-linear-to-br from-green-100 via-white to-green-50">

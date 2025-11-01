@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Search,
   Download,
@@ -10,7 +10,7 @@ import {
   CheckCircle,
   XCircle,
   ChevronDown,
-} from 'lucide-react';
+} from "lucide-react";
 import {
   BarChart,
   Bar,
@@ -20,13 +20,22 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
-} from 'recharts';
-import { Button } from '../../ui/Button';
-import { Card, CardContent, CardHeader, CardTitle } from '../../ui/Card';
-import { Badge } from '../../ui/Badge';
-import { Input } from '../../ui/Input';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../ui/Table';
-import { cn } from '../../lib/utils';
+} from "recharts";
+
+import { Button } from "../../ui/Button";
+import { Card, CardContent, CardHeader, CardTitle } from "../../ui/Card";
+import { Badge } from "../../ui/Badge";
+import { Input } from "../../ui/Input";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../../ui/Table";
+import { cn } from "../../lib/utils";
+import OrderBarChart from "../../components/OrderBarChart";
 
 // ✅ Small UI Helpers
 // export function Card({ className, children }) {
@@ -119,8 +128,8 @@ function Dropdown({ label, options, selected, onChange }) {
                 setOpen(false);
               }}
               className={cn(
-                'w-full text-left px-3 py-2 text-sm hover:bg-gray-100',
-                opt === selected && 'bg-green-50 text-green-700 font-medium'
+                "w-full text-left px-3 py-2 text-sm hover:bg-gray-100",
+                opt === selected && "bg-green-50 text-green-700 font-medium"
               )}
             >
               {opt}
@@ -150,8 +159,8 @@ function ActionMenu({ options }) {
               key={idx}
               onClick={() => setOpen(false)}
               className={cn(
-                'w-full text-left px-4 py-2 text-sm hover:bg-gray-100',
-                opt.danger && 'text-red-600'
+                "w-full text-left px-4 py-2 text-sm hover:bg-gray-100",
+                opt.danger && "text-red-600"
               )}
             >
               {opt.label}
@@ -165,35 +174,72 @@ function ActionMenu({ options }) {
 
 // ✅ Mock Data
 const orders = [
-  { id: 'ORD-2024-001', buyer: 'Grace Hotel', farmer: 'John Mukasa', products: 'Maize, Beans', total: 'UGX 450,000', payment: 'paid', delivery: 'delivered', date: '2024-10-14' },
-  { id: 'ORD-2024-002', buyer: 'Fresh Market Ltd', farmer: 'Mary Nambi', products: 'Tomatoes, Cabbage', total: 'UGX 280,000', payment: 'paid', delivery: 'in-transit', date: '2024-10-15' },
-  { id: 'ORD-2024-003', buyer: 'Restaurant Hub', farmer: 'Sarah Akello', products: 'Sweet Potatoes', total: 'UGX 180,000', payment: 'pending', delivery: 'processing', date: '2024-10-16' },
-  { id: 'ORD-2024-004', buyer: 'City Supermarket', farmer: 'David Ouma', products: 'Coffee Beans', total: 'UGX 1,200,000', payment: 'paid', delivery: 'delivered', date: '2024-10-13' },
-  { id: 'ORD-2024-005', buyer: 'Grace Hotel', farmer: 'Peter Mwesigwa', products: 'Cabbage, Carrots', total: 'UGX 320,000', payment: 'failed', delivery: 'cancelled', date: '2024-10-15' },
-];
-
-const revenueData = [
-  { month: 'Apr', revenue: 45000, commission: 4500 },
-  { month: 'May', revenue: 52000, commission: 5200 },
-  { month: 'Jun', revenue: 48000, commission: 4800 },
-  { month: 'Jul', revenue: 61000, commission: 6100 },
-  { month: 'Aug', revenue: 58000, commission: 5800 },
-  { month: 'Sep', revenue: 67000, commission: 6700 },
-  { month: 'Oct', revenue: 73000, commission: 7300 },
+  {
+    id: "ORD-2024-001",
+    buyer: "Grace Hotel",
+    farmer: "John Mukasa",
+    products: "Maize, Beans",
+    total: "UGX 450,000",
+    payment: "paid",
+    delivery: "delivered",
+    date: "2024-10-14",
+  },
+  {
+    id: "ORD-2024-002",
+    buyer: "Fresh Market Ltd",
+    farmer: "Mary Nambi",
+    products: "Tomatoes, Cabbage",
+    total: "UGX 280,000",
+    payment: "paid",
+    delivery: "in-transit",
+    date: "2024-10-15",
+  },
+  {
+    id: "ORD-2024-003",
+    buyer: "Restaurant Hub",
+    farmer: "Sarah Akello",
+    products: "Sweet Potatoes",
+    total: "UGX 180,000",
+    payment: "pending",
+    delivery: "processing",
+    date: "2024-10-16",
+  },
+  {
+    id: "ORD-2024-004",
+    buyer: "City Supermarket",
+    farmer: "David Ouma",
+    products: "Coffee Beans",
+    total: "UGX 1,200,000",
+    payment: "paid",
+    delivery: "delivered",
+    date: "2024-10-13",
+  },
+  {
+    id: "ORD-2024-005",
+    buyer: "Grace Hotel",
+    farmer: "Peter Mwesigwa",
+    products: "Cabbage, Carrots",
+    total: "UGX 320,000",
+    payment: "failed",
+    delivery: "cancelled",
+    date: "2024-10-15",
+  },
 ];
 
 // ✅ Main Component
 export default function Page() {
-  const [search, setSearch] = useState('');
-  const [paymentFilter, setPaymentFilter] = useState('All Payments');
-  const [deliveryFilter, setDeliveryFilter] = useState('All Status');
+  const [search, setSearch] = useState("");
+  const [paymentFilter, setPaymentFilter] = useState("All Payments");
+  const [deliveryFilter, setDeliveryFilter] = useState("All Status");
 
   const filteredOrders = orders.filter((o) => {
     const matchesSearch = o.buyer.toLowerCase().includes(search.toLowerCase());
     const matchesPayment =
-      paymentFilter === 'All Payments' || o.payment.toLowerCase() === paymentFilter.toLowerCase();
+      paymentFilter === "All Payments" ||
+      o.payment.toLowerCase() === paymentFilter.toLowerCase();
     const matchesDelivery =
-      deliveryFilter === 'All Status' || o.delivery.toLowerCase() === deliveryFilter.toLowerCase();
+      deliveryFilter === "All Status" ||
+      o.delivery.toLowerCase() === deliveryFilter.toLowerCase();
     return matchesSearch && matchesPayment && matchesDelivery;
   });
 
@@ -202,8 +248,12 @@ export default function Page() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-gray-900 mb-1 text-xl font-semibold">Orders & Transactions</h2>
-          <p className="text-gray-500">Track all marketplace orders and financial activities</p>
+          <h2 className="text-gray-900 mb-1 text-xl font-semibold">
+            Orders & Transactions
+          </h2>
+          <p className="text-gray-500">
+            Track all marketplace orders and financial activities
+          </p>
         </div>
         <Button className="bg-white border text-gray-700 hover:bg-gray-50">
           <Download className="w-4 h-4 mr-2 text-gray-600" />
@@ -213,38 +263,80 @@ export default function Page() {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <Card><CardContent><div className="flex justify-between"><div><p className="text-sm text-gray-500 mb-1">Total Orders</p><h3 className="text-gray-900 mb-2 text-lg font-semibold">24,571</h3><Badge className="bg-blue-100 text-blue-700">1,247 this month</Badge></div><div className="w-12 h-12 rounded-xl flex items-center justify-center bg-blue-100"><Package className="w-6 h-6 text-blue-600" /></div></div></CardContent></Card>
-        <Card><CardContent><div className="flex justify-between"><div><p className="text-sm text-gray-500 mb-1">In Transit</p><h3 className="text-gray-900 mb-2 text-lg font-semibold">347</h3><Badge className="bg-yellow-100 text-yellow-700">Track deliveries</Badge></div><div className="w-12 h-12 rounded-xl flex items-center justify-center bg-yellow-100"><Truck className="w-6 h-6 text-yellow-600" /></div></div></CardContent></Card>
-        <Card><CardContent><div className="flex justify-between"><div><p className="text-sm text-gray-500 mb-1">Completed</p><h3 className="text-gray-900 mb-2 text-lg font-semibold">23,847</h3><Badge className="bg-green-100 text-green-700">97% success rate</Badge></div><div className="w-12 h-12 rounded-xl flex items-center justify-center bg-green-100"><CheckCircle className="w-6 h-6 text-green-600" /></div></div></CardContent></Card>
-        <Card><CardContent><div className="flex justify-between"><div><p className="text-sm text-gray-500 mb-1">Failed/Cancelled</p><h3 className="text-gray-900 mb-2 text-lg font-semibold">377</h3><Badge className="bg-red-100 text-red-700">Review cases</Badge></div><div className="w-12 h-12 rounded-xl flex items-center justify-center bg-red-100"><XCircle className="w-6 h-6 text-red-600" /></div></div></CardContent></Card>
+        <Card>
+          <CardContent>
+            <div className="flex justify-between">
+              <div>
+                <p className="text-sm text-gray-500 mb-1">Total Orders</p>
+                <h3 className="text-gray-900 mb-2 text-lg font-semibold">
+                  24,571
+                </h3>
+                <Badge className="bg-blue-100 text-blue-700">
+                  1,247 this month
+                </Badge>
+              </div>
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-blue-100">
+                <Package className="w-6 h-6 text-blue-600" />
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent>
+            <div className="flex justify-between">
+              <div>
+                <p className="text-sm text-gray-500 mb-1">In Transit</p>
+                <h3 className="text-gray-900 mb-2 text-lg font-semibold">
+                  347
+                </h3>
+                <Badge className="bg-yellow-100 text-yellow-700">
+                  Track deliveries
+                </Badge>
+              </div>
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-yellow-100">
+                <Truck className="w-6 h-6 text-yellow-600" />
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent>
+            <div className="flex justify-between">
+              <div>
+                <p className="text-sm text-gray-500 mb-1">Completed</p>
+                <h3 className="text-gray-900 mb-2 text-lg font-semibold">
+                  23,847
+                </h3>
+                <Badge className="bg-green-100 text-green-700">
+                  97% success rate
+                </Badge>
+              </div>
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-green-100">
+                <CheckCircle className="w-6 h-6 text-green-600" />
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent>
+            <div className="flex justify-between">
+              <div>
+                <p className="text-sm text-gray-500 mb-1">Failed/Cancelled</p>
+                <h3 className="text-gray-900 mb-2 text-lg font-semibold">
+                  377
+                </h3>
+                <Badge className="bg-red-100 text-red-700">Review cases</Badge>
+              </div>
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-red-100">
+                <XCircle className="w-6 h-6 text-red-600" />
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
 
       {/* Chart */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Revenue & Commission Analytics</CardTitle>
-          <p className="text-sm text-gray-500">Monthly revenue breakdown and platform earnings</p>
-        </CardHeader>
-        <CardContent>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={revenueData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
-              <XAxis dataKey="month" stroke="#6B7280" />
-              <YAxis stroke="#6B7280" />
-              <Tooltip
-                contentStyle={{
-                  backgroundColor: 'white',
-                  border: '1px solid #E5E7EB',
-                  borderRadius: '8px',
-                }}
-              />
-              <Legend />
-              <Bar dataKey="revenue" fill="#2ECC71" name="Revenue (K)" radius={[8, 8, 0, 0]} />
-              <Bar dataKey="commission" fill="#3498DB" name="Commission (K)" radius={[8, 8, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
-        </CardContent>
-      </Card>
+      <OrderBarChart />
 
       {/* Table */}
       <Card>
@@ -263,13 +355,19 @@ export default function Page() {
               </div>
               <Dropdown
                 label="Payment"
-                options={['All Payments', 'Paid', 'Pending', 'Failed']}
+                options={["All Payments", "Paid", "Pending", "Failed"]}
                 selected={paymentFilter}
                 onChange={setPaymentFilter}
               />
               <Dropdown
                 label="Delivery"
-                options={['All Status', 'Processing', 'In-Transit', 'Delivered', 'Cancelled']}
+                options={[
+                  "All Status",
+                  "Processing",
+                  "In-Transit",
+                  "Delivered",
+                  "Cancelled",
+                ]}
                 selected={deliveryFilter}
                 onChange={setDeliveryFilter}
               />
@@ -303,9 +401,10 @@ export default function Page() {
                   <TableCell>
                     <Badge
                       className={cn(
-                        o.payment === 'paid' && 'bg-green-100 text-green-700',
-                        o.payment === 'pending' && 'bg-yellow-100 text-yellow-700',
-                        o.payment === 'failed' && 'bg-red-100 text-red-700'
+                        o.payment === "paid" && "bg-green-100 text-green-700",
+                        o.payment === "pending" &&
+                          "bg-yellow-100 text-yellow-700",
+                        o.payment === "failed" && "bg-red-100 text-red-700"
                       )}
                     >
                       {o.payment}
@@ -314,10 +413,13 @@ export default function Page() {
                   <TableCell>
                     <Badge
                       className={cn(
-                        o.delivery === 'delivered' && 'bg-green-100 text-green-700',
-                        o.delivery === 'in-transit' && 'bg-blue-100 text-blue-700',
-                        o.delivery === 'processing' && 'bg-yellow-100 text-yellow-700',
-                        o.delivery === 'cancelled' && 'bg-red-100 text-red-700'
+                        o.delivery === "delivered" &&
+                          "bg-green-100 text-green-700",
+                        o.delivery === "in-transit" &&
+                          "bg-blue-100 text-blue-700",
+                        o.delivery === "processing" &&
+                          "bg-yellow-100 text-yellow-700",
+                        o.delivery === "cancelled" && "bg-red-100 text-red-700"
                       )}
                     >
                       {o.delivery}
@@ -327,11 +429,14 @@ export default function Page() {
                   <TableCell>
                     <ActionMenu
                       options={[
-                        { label: 'View Details' },
-                        { label: 'Track Delivery' },
-                        { label: 'Contact Buyer' },
-                        { label: 'Contact Farmer' },
-                        o.payment === 'failed' && { label: 'Process Refund', danger: true },
+                        { label: "View Details" },
+                        { label: "Track Delivery" },
+                        { label: "Contact Buyer" },
+                        { label: "Contact Farmer" },
+                        o.payment === "failed" && {
+                          label: "Process Refund",
+                          danger: true,
+                        },
                       ].filter(Boolean)}
                     />
                   </TableCell>
@@ -340,7 +445,9 @@ export default function Page() {
             </TableBody>
           </Table>
           {filteredOrders.length === 0 && (
-            <p className="text-center text-gray-500 text-sm py-6">No matching orders found.</p>
+            <p className="text-center text-gray-500 text-sm py-6">
+              No matching orders found.
+            </p>
           )}
         </CardContent>
       </Card>

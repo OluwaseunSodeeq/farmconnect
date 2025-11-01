@@ -10,6 +10,7 @@ const montserrat = Montserrat({
 export const metadata = {
   title: "Farm Connect",
   description: "Farmers friend application",
+  icon:"/images/logo.png",
 };
 
 export default function RootLayout({ children }) {

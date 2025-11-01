@@ -55,13 +55,13 @@ const Navbar = () => {
 
   return (
     <div
-      className={`w-[100%] max-w-[2600px] h-[60px] responsive-header pl-6 pr-20 ${
+      className={`w-[100%] max-w-650 h-15 responsive-header pl-6 pr-20 ${
         isScrolled ? "scrolled" : "no-scrolled"
       } ${menu ? "bg-white max-h-max" : ""} fixed top-0  z-10`}
     >
       <header className="h-full w-full box-border flex justify-between items-center ">
         {/* Logo */}
-        <div className="flex items-center h-[70px] w-auto">
+        <div className="flex items-center h-17.5 w-auto">
   <Link href="/" className="relative flex items-center">
     <Image
       src="/images/logo.png"
@@ -100,7 +100,7 @@ const Navbar = () => {
           onClick={hideNavItems}
           className={
             isMobile
-              ? `flex flex-col gap-2 nav-bg py-3 w-full absolute h-max top-[50px] ${
+              ? `flex flex-col gap-2 nav-bg py-3 w-full absolute h-max top-12.5 ${
                   !menu
                     ? "-right-[100%]"
                     : "right-0 transition-all .5s ease-in"
