@@ -1,0 +1,157 @@
+{
+  "stats": {
+    "totalProducts": {
+      "count": 3847,
+      "change": "+234",
+      "period": "this month"
+    },
+    "pendingApproval": {
+      "count": 234,
+      "note": "Needs review"
+    },
+    "activeListings": {
+      "count": 3456,
+      "note": "Live now"
+    },
+    "outOfStock": {
+      "count": 157,
+      "note": "Needs restocking"
+    }
+  },
+  "products": [
+    {
+      "productId": "P001",
+      "name": "Organic Maize",
+      "listedDate": "2024-09-15",
+      "category": "Grains",
+      "farmer": "John Mukasa",
+      "price": {
+        "amount": 2500,
+        "unit": "kg",
+        "currency": "UGX"
+      },
+      "quantity": 500,
+      "status": "approved",
+      "performance": {
+        "views": 847,
+        "sales": 234
+      }
+    },
+    {
+      "productId": "P002",
+      "name": "Fresh Tomatoes",
+      "listedDate": "2024-10-01",
+      "category": "Vegetables",
+      "farmer": "Mary Nambi",
+      "price": {
+        "amount": 3000,
+        "unit": "kg",
+        "currency": "UGX"
+      },
+      "quantity": 200,
+      "status": "approved",
+      "performance": {
+        "views": 1234,
+        "sales": 456
+      }
+    },
+    {
+      "productId": "P003",
+      "name": "Coffee Beans",
+      "listedDate": "2024-10-14",
+      "category": "Cash Crops",
+      "farmer": "David Ouma",
+      "price": {
+        "amount": 15000,
+        "unit": "kg",
+        "currency": "UGX"
+      },
+      "quantity": 100,
+      "status": "pending",
+      "performance": {
+        "views": 234,
+        "sales": 0
+      }
+    },
+    {
+      "productId": "P004",
+      "name": "Sweet Potatoes",
+      "listedDate": "2024-09-28",
+      "category": "Tubers",
+      "farmer": "Sarah Akello",
+      "price": {
+        "amount": 1800,
+        "unit": "kg",
+        "currency": "UGX"
+      },
+      "quantity": 800,
+      "status": "approved",
+      "performance": {
+        "views": 567,
+        "sales": 189
+      }
+    },
+    {
+      "productId": "P005",
+      "name": "Fresh Cabbage",
+      "listedDate": "2024-10-10",
+      "category": "Vegetables",
+      "farmer": "Peter Mwesigwa",
+      "price": {
+        "amount": 2000,
+        "unit": "kg",
+        "currency": "UGX"
+      },
+      "quantity": 300,
+      "status": "rejected",
+      "performance": {
+        "views": 45,
+        "sales": 0
+      }
+    },
+    {
+      "productId": "P006",
+      "name": "Beans (Red)",
+      "listedDate": "2024-09-20",
+      "category": "Legumes",
+      "farmer": "John Mukasa",
+      "price": {
+        "amount": 3500,
+        "unit": "kg",
+        "currency": "UGX"
+      },
+      "quantity": 600,
+      "status": "approved",
+      "performance": {
+        "views": 923,
+        "sales": 312
+      }
+    }
+  ],
+  "categories": [
+    {
+      "category": "Vegetables",
+      "count": 847
+    },
+    {
+      "category": "Grains",
+      "count": 623
+    },
+    {
+      "category": "Fruits",
+      "count": 412
+    },
+    {
+      "category": "Legumes",
+      "count": 389
+    },
+    {
+      "category": "Cash Crops",
+      "count": 267
+    },
+    {
+      "category": "Tubers",
+      "count": 234
+    }
+  ]
+}

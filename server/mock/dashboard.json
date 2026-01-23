@@ -1,0 +1,68 @@
+{
+  "overview": {
+    "totalOrders": 12745,
+    "totalRevenue": 845000000,
+    "productsListed": 324,
+    "totalUsers": 6892
+  },
+  "userActivity": {
+    "activeFarmers": 55,
+    "activeBuyers": 27,
+    "inactiveFarmers": 18
+  },
+  "salesOverview": {
+    "week": "This Week",
+    "dailySales": [
+      { "day": "Monday", "orders": 120, "revenue": 12000000 },
+      { "day": "Tuesday", "orders": 98, "revenue": 9800000 },
+      { "day": "Wednesday", "orders": 140, "revenue": 14500000 },
+      { "day": "Thursday", "orders": 110, "revenue": 11300000 },
+      { "day": "Friday", "orders": 170, "revenue": 18000000 },
+      { "day": "Saturday", "orders": 210, "revenue": 22500000 },
+      { "day": "Sunday", "orders": 160, "revenue": 16800000 }
+    ]
+  },
+  "notifications": [
+    {
+      "type": "New User",
+      "message": "15 new farmers registered today",
+      "timeAgo": "5 min ago"
+    },
+    {
+      "type": "Verification",
+      "message": "23 farmers pending verification",
+      "timeAgo": "15 min ago"
+    },
+    {
+      "type": "Dispute",
+      "message": "3 new disputes require attention",
+      "timeAgo": "1 hour ago"
+    },
+    {
+      "type": "Order",
+      "message": "127 orders completed today",
+      "timeAgo": "2 hours ago"
+    }
+  ],
+  "topSellingCrops": [
+    {
+      "crop": "Maize",
+      "sales": "UGX 145M",
+      "quantity": "2450 tons",
+      "growth": 15
+    },
+    {
+      "crop": "Rice",
+      "sales": "UGX 120M",
+      "quantity": "1980 tons",
+      "growth": -5
+    }
+  ],
+  "approvals": {
+    "totalPending": 47,
+    "farmerVerifications": 23,
+    "productListings": 15,
+    "disputeCases": 6,
+    "refundRequests": 3
+  }
+}

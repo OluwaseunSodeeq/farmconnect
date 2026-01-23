@@ -1,0 +1,125 @@
+{
+  "stats": {
+    "pendingVerifications": {
+      "count": 23,
+      "note": "Needs review"
+    },
+    "verifiedFarmers": {
+      "count": 7847,
+      "status": "Active"
+    },
+    "activeCertifications": {
+      "count": 3247,
+      "status": "Valid"
+    },
+    "qualityAlerts": {
+      "count": 12,
+      "note": "Action needed"
+    }
+  },
+  "inspections": [
+    {
+      "inspectionId": "Q001",
+      "product": "Organic Maize",
+      "farmer": "John Mukasa",
+      "checkType": "Quality Inspection",
+      "inspector": "Admin Team",
+      "date": "2024-10-15",
+      "result": "passed",
+      "notes": "Product meets quality standards"
+    },
+    {
+      "inspectionId": "Q002",
+      "product": "Coffee Beans",
+      "farmer": "David Ouma",
+      "checkType": "Quality Inspection",
+      "inspector": "Admin Team",
+      "date": "2024-10-14",
+      "result": "pending",
+      "notes": "Awaiting lab test results"
+    },
+    {
+      "inspectionId": "Q003",
+      "product": "Fresh Cabbage",
+      "farmer": "Peter Mwesigwa",
+      "checkType": "Quality Inspection",
+      "inspector": "Admin Team",
+      "date": "2024-10-13",
+      "result": "failed",
+      "notes": "Does not meet minimum grade requirements"
+    }
+  ],
+  "certifications": [
+    {
+      "certificationId": "C001",
+      "farmName": "Mukasa Farm",
+      "farmer": "John Mukasa",
+      "certificationType": "Organic Certification",
+      "issuer": "Uganda Organic Certification",
+      "issueDate": "2024-01-15",
+      "expiryDate": "2025-01-15",
+      "status": "active"
+    },
+    {
+      "certificationId": "C002",
+      "farmName": "Green Valley Farm",
+      "farmer": "Mary Nambi",
+      "certificationType": "GAP Certification",
+      "issuer": "Uganda Standards Bureau",
+      "issueDate": "2023-12-10",
+      "expiryDate": "2024-12-10",
+      "status": "expiring_soon"
+    },
+    {
+      "certificationId": "C003",
+      "farmName": "Akello Organic",
+      "farmer": "Sarah Akello",
+      "certificationType": "Organic Certification",
+      "issuer": "Uganda Organic Certification",
+      "issueDate": "2024-03-05",
+      "expiryDate": "2025-03-05",
+      "status": "active"
+    }
+  ],
+  "verifications": [
+    {
+      "verificationId": "V001",
+      "farmer": {
+        "name": "John Mukasa",
+        "phone": "+256 700 123 456"
+      },
+      "farmName": "Mukasa Farm",
+      "idType": "National ID",
+      "idNumber": "CM1234567890",
+      "documents": 3,
+      "status": "pending",
+      "submittedDate": "2024-10-14"
+    },
+    {
+      "verificationId": "V002",
+      "farmer": {
+        "name": "Mary Nambi",
+        "phone": "+256 700 234 567"
+      },
+      "farmName": "Green Valley Farm",
+      "idType": "National ID",
+      "idNumber": "CM0987654321",
+      "documents": 4,
+      "status": "approved",
+      "submittedDate": "2024-10-10"
+    },
+    {
+      "verificationId": "V003",
+      "farmer": {
+        "name": "David Ouma",
+        "phone": "+256 700 345 678"
+      },
+      "farmName": "Sunrise Farms",
+      "idType": "Passport",
+      "idNumber": "PP4567890",
+      "documents": 2,
+      "status": "rejected",
+      "submittedDate": "2024-10-12"
+    }
+  ]
+}

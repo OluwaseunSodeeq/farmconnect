@@ -1,0 +1,127 @@
+{
+  "stats": {
+    "totalFarmers": {
+      "count": 8236,
+      "change": "+127",
+      "period": "this month"
+    },
+    "totalBuyers": {
+      "count": 4224,
+      "change": "+89",
+      "period": "this month"
+    },
+    "pendingVerification": {
+      "count": 23,
+      "note": "Needs attention"
+    },
+    "suspendedUsers": {
+      "count": 47,
+      "note": "Review cases"
+    }
+  },
+  "farmers": [
+    {
+      "farmerId": "F001",
+      "name": "John Mukasa",
+      "joined": "2024-01-15",
+      "farmName": "Mukasa Farm",
+      "phone": "+256 700 123 456",
+      "location": "Kampala",
+      "products": 45,
+      "status": "verified"
+    },
+    {
+      "farmerId": "F002",
+      "name": "Mary Nambi",
+      "joined": "2024-02-20",
+      "farmName": "Green Valley Farm",
+      "phone": "+256 700 234 567",
+      "location": "Jinja",
+      "products": 32,
+      "status": "verified"
+    },
+    {
+      "farmerId": "F003",
+      "name": "David Ouma",
+      "joined": "2024-09-10",
+      "farmName": "Sunrise Farms",
+      "phone": "+256 700 345 678",
+      "location": "Mbale",
+      "products": 12,
+      "status": "pending"
+    },
+    {
+      "farmerId": "F004",
+      "name": "Sarah Akello",
+      "joined": "2024-03-05",
+      "farmName": "Akello Organic",
+      "phone": "+256 700 456 789",
+      "location": "Gulu",
+      "products": 28,
+      "status": "verified"
+    },
+    {
+      "farmerId": "F005",
+      "name": "Peter Mwesigwa",
+      "joined": "2024-04-12",
+      "farmName": "Highland Produce",
+      "phone": "+256 700 567 890",
+      "location": "Kabale",
+      "products": 8,
+      "status": "suspended"
+    },
+
+    {
+      "farmerId": "F006",
+      "name": "Peter Fatomilola",
+      "joined": "2024-04-21",
+      "farmName": "Highland Lag",
+      "phone": "+256 700 567 890",
+      "location": "Kabale",
+      "products": 8,
+      "status": "suspended"
+    }
+  ],
+  "buyers": [
+    {
+      "buyerId": "B001",
+      "businessName": "Grace Hotel",
+      "joined": "2023-11-10",
+      "contactPerson": "Jane Nakato",
+      "phone": "+256 700 111 222",
+      "location": "Kampala",
+      "orders": 234,
+      "status": "active"
+    },
+    {
+      "buyerId": "B002",
+      "businessName": "Fresh Market Ltd",
+      "joined": "2023-12-15",
+      "contactPerson": "Tom Odongo",
+      "phone": "+256 700 222 333",
+      "location": "Entebbe",
+      "orders": 189,
+      "status": "active"
+    },
+    {
+      "buyerId": "B003",
+      "businessName": "Restaurant Hub",
+      "joined": "2024-01-20",
+      "contactPerson": "Alice Namukasa",
+      "phone": "+256 700 333 444",
+      "location": "Kampala",
+      "orders": 145,
+      "status": "active"
+    },
+    {
+      "buyerId": "B004",
+      "businessName": "City Supermarket",
+      "joined": "2024-02-28",
+      "contactPerson": "James Okello",
+      "phone": "+256 700 444 555",
+      "location": "Jinja",
+      "orders": 67,
+      "status": "inactive"
+    }
+  ]
+}

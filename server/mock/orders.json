@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "totalOrders": {
+      "count": 24571,
+      "thisMonth": 1247
+    },
+    "inTransit": {
+      "count": 347,
+      "note": "Track deliveries"
+    },
+    "completed": {
+      "count": 23847,
+      "successRate": "97%"
+    },
+    "failedOrCancelled": {
+      "count": 377,
+      "note": "Review cases"
+    }
+  },
+  "recentOrders": [
+    {
+      "orderId": "ORD-2024-001",
+      "buyer": "Grace Hotel",
+      "farmer": "John Mukasa",
+      "products": ["Maize", "Beans"],
+      "total": {
+        "amount": 450000,
+        "currency": "UGX"
+      },
+      "paymentStatus": "paid",
+      "deliveryStatus": "delivered",
+      "orderDate": "2024-10-14"
+    },
+    {
+      "orderId": "ORD-2024-002",
+      "buyer": "Fresh Market Ltd",
+      "farmer": "Mary Nambi",
+      "products": ["Tomatoes", "Cabbage"],
+      "total": {
+        "amount": 280000,
+        "currency": "UGX"
+      },
+      "paymentStatus": "paid",
+      "deliveryStatus": "in-transit",
+      "orderDate": "2024-10-15"
+    },
+    {
+      "orderId": "ORD-2024-003",
+      "buyer": "Restaurant Hub",
+      "farmer": "Sarah Akello",
+      "products": ["Sweet Potatoes"],
+      "total": {
+        "amount": 180000,
+        "currency": "UGX"
+      },
+      "paymentStatus": "pending",
+      "deliveryStatus": "processing",
+      "orderDate": "2024-10-16"
+    },
+    {
+      "orderId": "ORD-2024-004",
+      "buyer": "City Supermarket",
+      "farmer": "David Ouma",
+      "products": ["Coffee Beans"],
+      "total": {
+        "amount": 1200000,
+        "currency": "UGX"
+      },
+      "paymentStatus": "paid",
+      "deliveryStatus": "delivered",
+      "orderDate": "2024-10-13"
+    },
+    {
+      "orderId": "ORD-2024-005",
+      "buyer": "Grace Hotel",
+      "farmer": "Peter Mwesigwa",
+      "products": ["Cabbage", "Carrots"],
+      "total": {
+        "amount": 320000,
+        "currency": "UGX"
+      },
+      "paymentStatus": "failed",
+      "deliveryStatus": "cancelled",
+      "orderDate": "2024-10-15"
+    }
+  ],
+  "revenueAnalytics": [
+    {
+      "month": "Apr",
+      "revenue": 45000,
+      "commission": 4500
+    },
+    {
+      "month": "May",
+      "revenue": 52000,
+      "commission": 5200
+    },
+    {
+      "month": "Jun",
+      "revenue": 48000,
+      "commission": 4800
+    },
+    {
+      "month": "Jul",
+      "revenue": 61000,
+      "commission": 6100
+    },
+    {
+      "month": "Aug",
+      "revenue": 58000,
+      "commission": 5800
+    },
+    {
+      "month": "Sep",
+      "revenue": 67000,
+      "commission": 6700
+    },
+    {
+      "month": "Oct",
+      "revenue": 73000,
+      "commission": 7300
+    }
+  ]
+}

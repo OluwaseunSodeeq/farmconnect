@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "reportsGenerated": {
+      "count": 247,
+      "period": "this_month"
+    },
+    "totalDownloads": {
+      "count": 1847,
+      "period": "all_time"
+    },
+    "scheduledReports": {
+      "count": 12,
+      "note": "Auto-generate"
+    },
+    "storage": {
+      "usedGB": 34.8,
+      "capacityPercent": 68
+    }
+  },
+  "monthlyPerformance": [
+    {
+      "month": "Apr",
+      "revenue": 450000,
+      "users": 320,
+      "products": 156
+    },
+    {
+      "month": "May",
+      "revenue": 520000,
+      "users": 387,
+      "products": 189
+    },
+    {
+      "month": "Jun",
+      "revenue": 480000,
+      "users": 412,
+      "products": 201
+    },
+    {
+      "month": "Jul",
+      "revenue": 610000,
+      "users": 456,
+      "products": 234
+    },
+    {
+      "month": "Aug",
+      "revenue": 580000,
+      "users": 503,
+      "products": 267
+    },
+    {
+      "month": "Sep",
+      "revenue": 670000,
+      "users": 578,
+      "products": 298
+    },
+    {
+      "month": "Oct",
+      "revenue": 730000,
+      "users": 623,
+      "products": 324
+    }
+  ],
+  "generatedReports": [
+    {
+      "reportId": "RPT-2024-001",
+      "name": "Monthly Platform Performance - October",
+      "type": "monthly",
+      "format": "pdf",
+      "generatedBy": "system",
+      "generatedAt": "2024-10-31",
+      "downloads": 143,
+      "sizeMB": 2.4
+    },
+    {
+      "reportId": "RPT-2024-002",
+      "name": "Revenue & Orders Summary - Q3",
+      "type": "quarterly",
+      "format": "csv",
+      "generatedBy": "admin",
+      "generatedAt": "2024-10-01",
+      "downloads": 287,
+      "sizeMB": 1.8
+    }
+  ],
+  "scheduledReports": [
+    {
+      "scheduleId": "SCH-001",
+      "reportName": "Monthly Performance Report",
+      "frequency": "monthly",
+      "format": "pdf",
+      "nextRun": "2024-11-01",
+      "recipients": ["admin@farmconnect.com"],
+      "status": "active"
+    },
+    {
+      "scheduleId": "SCH-002",
+      "reportName": "Weekly Orders Summary",
+      "frequency": "weekly",
+      "format": "csv",
+      "nextRun": "2024-10-21",
+      "recipients": ["finance@farmconnect.com"],
+      "status": "active"
+    }
+  ]
+}

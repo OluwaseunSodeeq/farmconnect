@@ -1,0 +1,177 @@
+{
+  "kpis": {
+    "platformSales": {
+      "value": 847000000,
+      "currency": "UGX",
+      "changePercent": 24.3,
+      "trend": "up",
+      "compareTo": "last_month"
+    },
+    "averageOrderValue": {
+      "value": 34500,
+      "currency": "UGX",
+      "changePercent": 8.7,
+      "trend": "up",
+      "compareTo": "last_month"
+    },
+    "conversionRate": {
+      "value": 18.4,
+      "unit": "%",
+      "changePercent": -2.1,
+      "trend": "down",
+      "compareTo": "last_month"
+    },
+    "activeTransactions": {
+      "value": 1247,
+      "changePercent": 12.5,
+      "trend": "up",
+      "compareTo": "last_month"
+    }
+  },
+  "salesTrends": [
+    {
+      "month": "Jan",
+      "sales": 45000,
+      "target": 50000,
+      "growth": 15
+    },
+    {
+      "month": "Feb",
+      "sales": 52000,
+      "target": 55000,
+      "growth": 18
+    },
+    {
+      "month": "Mar",
+      "sales": 48000,
+      "target": 53000,
+      "growth": 12
+    },
+    {
+      "month": "Apr",
+      "sales": 61000,
+      "target": 58000,
+      "growth": 24
+    },
+    {
+      "month": "May",
+      "sales": 58000,
+      "target": 60000,
+      "growth": 19
+    },
+    {
+      "month": "Jun",
+      "sales": 67000,
+      "target": 63000,
+      "growth": 28
+    },
+    {
+      "month": "Jul",
+      "sales": 73000,
+      "target": 68000,
+      "growth": 32
+    },
+    {
+      "month": "Aug",
+      "sales": 78000,
+      "target": 72000,
+      "growth": 35
+    },
+    {
+      "month": "Sep",
+      "sales": 82000,
+      "target": 75000,
+      "growth": 38
+    },
+    {
+      "month": "Oct",
+      "sales": 89000,
+      "target": 80000,
+      "growth": 42
+    }
+  ],
+  "cropPerformance": [
+    {
+      "crop": "Maize",
+      "sales": 145000
+    },
+    {
+      "crop": "Coffee",
+      "sales": 128000
+    },
+    {
+      "crop": "Beans",
+      "sales": 98000
+    },
+    {
+      "crop": "Cassava",
+      "sales": 76000
+    },
+    {
+      "crop": "Sweet Potato",
+      "sales": 54000
+    },
+    {
+      "crop": "Tomatoes",
+      "sales": 89000
+    }
+  ],
+  "regionalDistribution": [
+    {
+      "region": "Kampala",
+      "value": 34500,
+      "color": "#2ECC71"
+    },
+    {
+      "region": "Jinja",
+      "value": 28900,
+      "color": "#3498DB"
+    },
+    {
+      "region": "Mbale",
+      "value": 22400,
+      "color": "#9B59B6"
+    },
+    {
+      "region": "Gulu",
+      "value": 18700,
+      "color": "#F39C12"
+    },
+    {
+      "region": "Mbarara",
+      "value": 15600,
+      "color": "#E74C3C"
+    },
+    {
+      "region": "Others",
+      "value": 12300,
+      "color": "#95A5A6"
+    }
+  ],
+  "seasonalData": [
+    {
+      "season": "Q1 2024",
+      "vegetables": 45000,
+      "grains": 38000,
+      "cash_crops": 28000
+    },
+    {
+      "season": "Q2 2024",
+      "vegetables": 52000,
+      "grains": 42000,
+      "cash_crops": 31000
+    },
+    {
+      "season": "Q3 2024",
+      "vegetables": 58000,
+      "grains": 48000,
+      "cash_crops": 35000
+    },
+    {
+      "season": "Q4 2024",
+      "vegetables": 48000,
+      "grains": 52000,
+      "cash_crops": 38000
+    }
+  ]
+}
