@@ -1,55 +1,100 @@
-// pages/api/auth/[...nextauth].js
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-export default NextAuth({
+const handler = NextAuth({
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
-        try {
-          const res = await fetch(process.env.POSTMAN_API_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(credentials),
-          });
+        const res = await fetch(process.env.POSTMAN_API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(credentials),
+        });
 
-          const data = await res.json();
+        const data = await res.json();
 
-          if (!res.ok || !data.user) {
-            return null; // ❌ invalid credentials
-          }
+        if (!res.ok || !data.user) return null;
 
-          // ✅ Valid login
-          return {
-            id: data.user.id,
-            name: data.user.fullname,
-            email: data.user.email,
-            role: data.user.role,
-            accessToken: data.token, // ✅ store token correctly
-          };
-        } catch (error) {
-          return null;
-        }
+        return {
+          id: data.user.id,
+          name: data.user.fullname,
+          email: data.user.email,
+          role: data.user.role,
+          accessToken: data.token,
+        };
       },
     }),
   ],
   session: { strategy: "jwt" },
   callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token = { ...token, ...user };
-      }
+    jwt({ token, user }) {
+      if (user) return { ...token, ...user };
       return token;
     },
-    async session({ session, token }) {
+    session({ session, token }) {
       session.user = token;
-      session.accessToken = token.accessToken; // ✅ Consistent token path
+      session.accessToken = token.accessToken;
       return session;
     },
   },
-  pages: { signIn: "/" },
+  pages: { signIn: "/login" },
   secret: process.env.NEXTAUTH_SECRET,
 });
+
+export { handler as GET, handler as POST };
+
+// // pages/api/auth/[...nextauth].js
+// import NextAuth from "next-auth";
+// import CredentialsProvider from "next-auth/providers/credentials";
+
+// export default NextAuth({
+//   providers: [
+//     CredentialsProvider({
+//       async authorize(credentials) {
+//         try {
+//           const res = await fetch(process.env.POSTMAN_API_URL, {
+//             method: "POST",
+//             headers: { "Content-Type": "application/json" },
+//             body: JSON.stringify(credentials),
+//           });
+
+//           const data = await res.json();
+
+//           if (!res.ok || !data.user) {
+//             return null; // ❌ invalid credentials
+//           }
+
+//           // ✅ Valid login
+//           return {
+//             id: data.user.id,
+//             name: data.user.fullname,
+//             email: data.user.email,
+//             role: data.user.role,
+//             accessToken: data.token, // ✅ store token correctly
+//           };
+//         } catch (error) {
+//           return null;
+//         }
+//       },
+//     }),
+//   ],
+//   session: { strategy: "jwt" },
+//   callbacks: {
+//     async jwt({ token, user }) {
+//       if (user) {
+//         token = { ...token, ...user };
+//       }
+//       return token;
+//     },
+//     async session({ session, token }) {
+//       session.user = token;
+//       session.accessToken = token.accessToken; // ✅ Consistent token path
+//       return session;
+//     },
+//   },
+//   pages: { signIn: "/" },
+//   secret: process.env.NEXTAUTH_SECRET,
+// });
 
 // ===============================================
 
