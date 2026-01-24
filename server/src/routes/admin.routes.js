@@ -1,40 +1,12 @@
 import express from "express";
-import { readDB } from "../services/db.service.js";
+
+import {
+  getAllOrders,
+  getAllProducts,
+  getAllUsers,
+} from "../controllers/adminController.js";
 
 const adminRouter = express.Router();
-
-// GET ALL ORDERS (ADMIN)
-const getAllOrders = (req, res) => {
-  const db = readDB();
-
-  res.status(200).json({
-    status: "success",
-    results: db.orders.length,
-    data: db.orders,
-  });
-};
-
-// GET ALL USERS (ADMIN)
-const getAllUsers = (req, res) => {
-  const db = readDB();
-
-  res.status(200).json({
-    status: "success",
-    results: db.users.length,
-    data: db.users,
-  });
-};
-
-// GET ALL PRODUCTS (ADMIN)
-const getAllProducts = (req, res) => {
-  const db = readDB();
-
-  res.status(200).json({
-    status: "success",
-    results: db.products.length,
-    data: db.products,
-  });
-};
 
 // ROUTES
 adminRouter.get("/orders", getAllOrders);

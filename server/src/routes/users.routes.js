@@ -1,154 +1,20 @@
 import express from "express";
-import { readDB, writeDB } from "../services/db.service.js";
-
+import { checkUserId, checkUserBody } from "../controllers/userController.js";
+import {
+  getAllUsers,
+  getUser,
+  updateUser,
+  deleteUser,
+  createUser,
+} from "../controllers/userController.js";
 const usersRouter = express.Router();
 
-// --------------------
-// CONTROLLERS
-// --------------------
-
-// GET ALL USERS
-const getAllUsers = (req, res) => {
-  const db = readDB();
-
-  res.status(200).json({
-    status: "success",
-    results: db.users.length,
-    data: db.users,
-  });
-};
-
-// GET SINGLE USER
-const getUser = (req, res) => {
-  const db = readDB();
-  const user = db.users.find((f) => f.userId === req.params.id);
-
-  if (!user) {
-    return res.status(404).json({
-      status: "error",
-      message: "User not found",
-    });
-  }
-
-  res.status(200).json({
-    status: "success",
-    data: user,
-  });
-};
-
-// CREATE USER
-const createUser = (req, res) => {
-  try {
-    const db = readDB();
-    const newUser = req.body;
-
-    if (!newUser.userId) {
-      return res.status(400).json({
-        status: "error",
-        message: "userId is required",
-      });
-    }
-
-    const exists = db.users.some((f) => f.userId === newUser.userId);
-
-    if (exists) {
-      return res.status(409).json({
-        status: "error",
-        message: "User already exists",
-      });
-    }
-
-    db.users.push(newUser);
-    db.stats.totalUsers.count++;
-
-    writeDB(db);
-
-    res.status(201).json({
-      status: "success",
-      data: newUser,
-    });
-  } catch (err) {
-    res.status(500).json({
-      status: "error",
-      message: err.message,
-    });
-  }
-};
-
-// UPDATE USER
-const updateUser = (req, res) => {
-  try {
-    const db = readDB();
-    const { id } = req.params;
-    const { status } = req.body;
-
-    const allowedStatus = ["verified", "pending", "suspended"];
-    if (!allowedStatus.includes(status)) {
-      return res.status(400).json({
-        status: "error",
-        message: "Invalid status value",
-      });
-    }
-
-    const user = db.users.find((f) => f.userId === id);
-
-    if (!user) {
-      return res.status(404).json({
-        status: "error",
-        message: "User not found",
-      });
-    }
-
-    user.status = status;
-
-    writeDB(db);
-
-    res.status(200).json({
-      status: "success",
-      data: user,
-    });
-  } catch (err) {
-    res.status(500).json({
-      status: "error",
-      message: err.message,
-    });
-  }
-};
-
-// DELETE USER
-const deleteUser = (req, res) => {
-  try {
-    const db = readDB();
-    const { id } = req.params;
-
-    const index = db.users.findIndex((f) => f.userId === id);
-
-    if (index === -1) {
-      return res.status(404).json({
-        status: "error",
-        message: "User not found",
-      });
-    }
-
-    db.users.splice(index, 1);
-    db.stats.totalUsers.count--;
-
-    writeDB(db);
-
-    res.status(204).send();
-  } catch (err) {
-    res.status(500).json({
-      status: "error",
-      message: err.message,
-    });
-  }
-};
+usersRouter.param("id", checkUserId);
 
 // --------------------
 // ROUTES
 // --------------------
-usersRouter.route("/").get(getAllUsers).post(createUser);
-
+usersRouter.route("/").get(getAllUsers).post(checkUserBody, createUser);
 usersRouter.route("/:id").get(getUser).patch(updateUser).delete(deleteUser);
 
 export default usersRouter;
