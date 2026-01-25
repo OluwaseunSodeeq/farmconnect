@@ -4,15 +4,18 @@ import CredentialsProvider from "next-auth/providers/credentials";
 const handler = NextAuth({
   providers: [
     CredentialsProvider({
+      name: "Credentials",
       async authorize(credentials) {
         const res = await fetch(process.env.POSTMAN_API_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(credentials),
+          body: JSON.stringify({
+            email: credentials.email,
+            password: credentials.password,
+          }),
         });
 
         const data = await res.json();
-
         if (!res.ok || !data.user) return null;
 
         return {
@@ -26,22 +29,55 @@ const handler = NextAuth({
     }),
   ],
   session: { strategy: "jwt" },
-  callbacks: {
-    jwt({ token, user }) {
-      if (user) return { ...token, ...user };
-      return token;
-    },
-    session({ session, token }) {
-      session.user = token;
-      session.accessToken = token.accessToken;
-      return session;
-    },
-  },
-  pages: { signIn: "/login" },
   secret: process.env.NEXTAUTH_SECRET,
 });
 
 export { handler as GET, handler as POST };
+
+// import NextAuth from "next-auth";
+// import CredentialsProvider from "next-auth/providers/credentials";
+
+// const handler = NextAuth({
+//   providers: [
+//     CredentialsProvider({
+//       async authorize(credentials) {
+//         const res = await fetch(process.env.POSTMAN_API_URL, {
+//           method: "POST",
+//           headers: { "Content-Type": "application/json" },
+//           body: JSON.stringify(credentials),
+//         });
+
+//         const data = await res.json();
+
+//         if (!res.ok || !data.user) return null;
+
+//         return {
+//           id: data.user.id,
+//           name: data.user.fullname,
+//           email: data.user.email,
+//           role: data.user.role,
+//           accessToken: data.token,
+//         };
+//       },
+//     }),
+//   ],
+//   session: { strategy: "jwt" },
+//   callbacks: {
+//     jwt({ token, user }) {
+//       if (user) return { ...token, ...user };
+//       return token;
+//     },
+//     session({ session, token }) {
+//       session.user = token;
+//       session.accessToken = token.accessToken;
+//       return session;
+//     },
+//   },
+//   pages: { signIn: "/login" },
+//   secret: process.env.NEXTAUTH_SECRET,
+// });
+
+// export { handler as GET, handler as POST };
 
 // // pages/api/auth/[...nextauth].js
 // import NextAuth from "next-auth";
