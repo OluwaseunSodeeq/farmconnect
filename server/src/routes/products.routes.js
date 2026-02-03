@@ -1,48 +1,23 @@
 import express from "express";
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+import { readDB, writeDB } from "../services/db.service.js";
 
 const productsRouter = express.Router();
-
-// --------------------
-// ESM SAFE __dirname
-// --------------------
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// --------------------
-// FILE PATH
-// --------------------
-const productsPath = path.join(__dirname, "../data/db.json");
-
-// --------------------
-// HELPERS
-// --------------------
-const readProducts = () => {
-  const data = fs.readFileSync(productsPath, "utf-8");
-  return data ? JSON.parse(data) : [];
-};
-
-const writeProducts = (data) => {
-  fs.writeFileSync(productsPath, JSON.stringify(data, null, 2), "utf-8");
-};
 
 // --------------------
 // CONTROLLERS
 // --------------------
 const getAllProducts = (req, res) => {
-  const products = readProducts();
+  const db = readDB();
   res.status(200).json({
     status: "success",
-    results: products.length,
-    data: products,
+    results: db.products.length,
+    data: db.products,
   });
 };
 
 const getProduct = (req, res) => {
-  const products = readProducts();
-  const product = products.find((p) => p.id === req.params.id);
+  const db = readDB();
+  const product = db.products.find((p) => p.id === req.params.id);
 
   if (!product) {
     return res.status(404).json({

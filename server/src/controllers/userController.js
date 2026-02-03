@@ -1,131 +1,107 @@
-import { readDB, writeDB } from "../services/db.service.js";
+import mongoose from "mongoose";
+import { User } from "../models/usermodel.js";
 
-export const checkUserId = (req, res, next, id) => {
-  const db = readDB();
-  const userExists = db.users.some((u) => u.id === id);
-  if (!userExists) {
-    return res.status(404).json({
-      status: "fail",
-      message: "User not found i.e invalid ID",
-    });
-  }
-  next();
-};
-
-export const checkUserBody = (req, res, next, val) => {
-  const { role, name } = req.body;
-  if (!role || !name) {
-    return res.status(400).json({
-      status: "fail",
-      message: "Missing required fields: role and name",
-    });
-  }
-
-  next();
-};
-
-// --------------------
+// --------------------//
 // CONTROLLERS
-// --------------------
+// --------------------//
 
 // GET ALL USERS
-export const getAllUsers = (req, res) => {
-  const db = readDB();
 
-  res.status(200).json({
-    status: "success",
-    results: db.users.length,
-    data: db.users,
-  });
+export const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find();
+
+    res.status(200).json({
+      status: "success",
+      results: users.length,
+      data: users,
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err.message,
+    });
+  }
 };
 
 // GET SINGLE USER
-export const getUser = (req, res) => {
-  const db = readDB();
-  const requestedId = req.params.id.trim();
+export const getUser = async (req, res) => {
+  try {
+    const { id } = req.params;
 
-  const user = db.users.find((u) => u.id && u.id.trim() === requestedId);
-
-  if (!user) {
-    return res.status(404).json({
-      status: "error",
+    const user = await User.findById(id);
+    res.status(200).json({
+      status: "success",
+      data: user,
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
       message: "User not found",
     });
   }
-
-  res.status(200).json({
-    status: "success",
-    data: user,
-  });
 };
 
 // CREATE USER
-export const createUser = (req, res) => {
-  const db = readDB();
-  const newUser = req.body;
-
-  if (!newUser.id) {
-    return res.status(400).json({
-      status: "error",
-      message: "id is required",
+export const createUser = async (req, res) => {
+  try {
+    const newUser = await User.create(req.body);
+    res.status(201).json({
+      status: "success",
+      data: newUser,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: "fail",
+      message: err.message,
     });
   }
-
-  const exists = db.users.some((u) => u.id === newUser.id);
-  if (exists) {
-    return res.status(409).json({
-      status: "error",
-      message: "User already exists",
-    });
-  }
-
-  db.users.push(newUser);
-  writeDB(db);
-
-  res.status(201).json({
-    status: "success",
-    data: newUser,
-  });
 };
 
 // UPDATE USER
-export const updateUser = (req, res) => {
-  const db = readDB();
+export const updateUser = async (req, res) => {
   const { id } = req.params;
 
-  const user = db.users.find((u) => u.id === id);
-  if (!user) {
-    return res.status(404).json({
-      status: "error",
-      message: "User not found",
+  try {
+    const updatedUser = await User.findByIdAndUpdate(id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+    res.status(200).json({
+      status: "success",
+      data: updatedUser,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: "fail",
+      message: err.message,
     });
   }
-
-  Object.assign(user, req.body);
-  writeDB(db);
-
-  res.status(200).json({
-    status: "success",
-    data: user,
-  });
 };
 
 // DELETE USER
-export const deleteUser = (req, res) => {
-  const db = readDB();
-  const index = db.users.findIndex((u) => u.id === req.params.id);
+export const deleteUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findByIdAndDelete(id);
 
-  if (index === -1) {
-    return res.status(404).json({
-      status: "error",
-      message: "User not found",
+    if (!user) {
+      return res.status(404).json({
+        status: "fail",
+        message: "User not found",
+      });
+    }
+
+    res.status(204).json({
+      status: "success",
+      data: null,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: "fail",
+      message: err.message,
     });
   }
-
-  db.users.splice(index, 1);
-  writeDB(db);
-
-  res.status(204).send();
 };
 
 // // GET ALL USERS

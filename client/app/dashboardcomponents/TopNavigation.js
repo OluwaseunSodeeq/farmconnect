@@ -1,10 +1,16 @@
-'use client';
+"use client";
 
-import { Bell, Search, Menu, User, ChevronDown } from 'lucide-react';
-import { Badge } from '../ui/Badge';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '../ui/DropdownMenu';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/Avatar';
-
+import { Bell, Search, Menu, User, ChevronDown } from "lucide-react";
+import { Badge } from "../ui/Badge";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../ui/DropdownMenu";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/Avatar";
 
 export function TopNavigation({ toggleSidebar, sidebarOpen }) {
   return (
@@ -47,8 +53,8 @@ export function TopNavigation({ toggleSidebar, sidebarOpen }) {
         <DropdownMenu>
           <DropdownMenuTrigger className="flex items-center gap-3 hover:bg-gray-50 rounded-lg px-3 py-2 transition-colors">
             <Avatar className="w-9 h-9">
-              <AvatarImage src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" />
-              <AvatarFallback>AD</AvatarFallback>
+              <AvatarImage src="images/Intense-seun.png" />
+              <AvatarFallback>OS</AvatarFallback>
             </Avatar>
             <div className="hidden md:block text-left">
               <p className="text-sm font-medium text-gray-900">Admin User</p>
