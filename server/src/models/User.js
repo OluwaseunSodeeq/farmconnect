@@ -61,18 +61,25 @@ const userSchema = new mongoose.Schema(
 
     status: {
       type: String,
-      enum: ["active", "suspended"],
-      default: "active",
+      enum: ["active", "suspended", "pending", "inactive", "verified"],
+      default: "pending",
     },
 
     isActive: {
       type: Boolean,
       default: true,
     },
+    legacyId: {
+      type: String,
+      unique: true,
+      index: true,
+    },
   },
+
   {
     timestamps: true,
   },
 );
 
-export const User = mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
+export default User;
