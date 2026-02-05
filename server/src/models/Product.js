@@ -1,4 +1,3 @@
-// models/Product.js
 import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema(
@@ -38,7 +37,7 @@ const productSchema = new mongoose.Schema(
 
     unit: {
       type: String,
-      enum: ["kg", "ton", "bag", "crate", "piece"],
+      enum: ["kg", "ton"],
       required: true,
     },
 
@@ -63,11 +62,22 @@ const productSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    legacyId: {
+      type: String,
+      unique: true,
+      index: true,
+    },
+    legacyId: {
+      type: String,
+      unique: true,
+      index: true,
+    },
   },
   { timestamps: true },
 );
 
-export const Product = mongoose.model("Product", productSchema);
+const Product = mongoose.model("Product", productSchema);
+export default Product;
 
 // import mongoose from "mongoose";
 

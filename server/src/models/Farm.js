@@ -63,4 +63,5 @@ const farmSchema = new mongoose.Schema(
   },
 );
 
-export const Farm = mongoose.model("Farm", farmSchema);
+const Farm = mongoose.model("Farm", farmSchema);
+export default Farm;

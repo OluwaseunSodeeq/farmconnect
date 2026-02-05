@@ -1,43 +1,24 @@
 import express from "express";
 import { readDB, writeDB } from "../services/db.service.js";
+import {
+  createProduct,
+  deleteProduct,
+  getAllProducts,
+  getProduct,
+  updateProduct,
+} from "../controllers/productController.js";
 
 const productsRouter = express.Router();
 
 // --------------------
-// CONTROLLERS
-// --------------------
-const getAllProducts = (req, res) => {
-  const db = readDB();
-  res.status(200).json({
-    status: "success",
-    results: db.products.length,
-    data: db.products,
-  });
-};
-
-const getProduct = (req, res) => {
-  const db = readDB();
-  const product = db.products.find((p) => p.id === req.params.id);
-
-  if (!product) {
-    return res.status(404).json({
-      status: "error",
-      message: "Product not found",
-    });
-  }
-
-  res.status(200).json({
-    status: "success",
-    data: product,
-  });
-};
-
-// --------------------
 // ROUTES
 // --------------------
-productsRouter.route("/").get(getAllProducts);
-
-productsRouter.route("/:id").get(getProduct);
+productsRouter.route("/").get(getAllProducts).post(createProduct);
+productsRouter
+  .route("/:id")
+  .get(getProduct)
+  .patch(updateProduct)
+  .delete(deleteProduct);
 
 export default productsRouter;
 
