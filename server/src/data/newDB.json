@@ -455,7 +455,7 @@
       "price": 4000,
       "unit": "kg",
       "stock": 420,
-      "status": "approved",
+      "status": "pending",
       "views": 654,
       "sales": 201,
       "createdAt": "2024-09-25"
@@ -525,7 +525,7 @@
       "price": 18000,
       "unit": "kg",
       "stock": 80,
-      "status": "pending",
+      "status": "approved",
       "views": 198,
       "sales": 0,
       "createdAt": "2024-10-18"
@@ -983,241 +983,442 @@
   "orders": [
     {
       "legacyId": "ORD001",
-      "buyerId": "B001",
-      "farmerId": "F001",
+      "buyerId": "USR007",
+      "farmerId": "USR001",
       "farmId": "F001",
-      "items": [{ "productId": "PRD001", "quantity": 120, "price": 2500 }],
+      "items": [
+        {
+          "productId": "PRD001",
+          "name": "Organic Maize",
+          "unit": "kg",
+          "quantity": 120,
+          "price": 2500,
+          "subtotal": 300000
+        }
+      ],
       "totalAmount": 300000,
+      "currency": "UGX",
       "paymentStatus": "paid",
       "orderStatus": "delivered",
       "createdAt": "2024-09-01"
     },
+
     {
       "legacyId": "ORD002",
-      "buyerId": "B002",
-      "farmerId": "F002",
+      "buyerId": "USR008",
+      "farmerId": "USR001",
       "farmId": "F002",
-      "items": [{ "productId": "PRD004", "quantity": 200, "price": 1500 }],
-      "totalAmount": 300000,
+      "items": [
+        {
+          "productId": "PRD002",
+          "name": "Red Beans",
+          "unit": "kg",
+          "quantity": 100,
+          "price": 3500,
+          "subtotal": 350000
+        }
+      ],
+      "currency": "UGX",
       "paymentStatus": "paid",
       "orderStatus": "delivered",
       "createdAt": "2024-09-03"
     },
     {
       "legacyId": "ORD003",
-      "buyerId": "B003",
-      "farmerId": "F003",
-      "farmId": "FRM003",
-      "items": [{ "productId": "PRD007", "quantity": 60, "price": 2200 }],
-      "totalAmount": 132000,
+      "buyerId": "USR009",
+      "farmerId": "USR003",
+      "farmId": "FRM005",
+      "items": [
+        {
+          "productId": "PRD003",
+          "name": "Groundnuts",
+          "unit": "kg",
+          "quantity": 60,
+          "price": 2200,
+          "subtotal": 132000
+        }
+      ],
       "paymentStatus": "pending",
       "orderStatus": "processing",
       "createdAt": "2024-09-05"
     },
     {
       "legacyId": "ORD004",
-      "buyerId": "B004",
-      "farmerId": "F004",
-      "farmId": "FRM004",
-      "items": [{ "productId": "PRD009", "quantity": 150, "price": 1700 }],
-      "totalAmount": 255000,
+      "buyerId": "USR010",
+      "farmerId": "USR001",
+      "farmId": "F001",
+      "items": [
+        {
+          "productId": "PRD004",
+          "name": "Fresh Tomatoes",
+          "unit": "kg",
+          "quantity": 85,
+          "price": 3000,
+          "subtotal": 255000
+        }
+      ],
+      "currency": "UGX",
       "paymentStatus": "paid",
       "orderStatus": "delivered",
       "createdAt": "2024-09-06"
     },
     {
       "legacyId": "ORD005",
-      "buyerId": "B001",
-      "farmerId": "F005",
-      "farmId": "FRM005",
-      "items": [{ "productId": "PRD013", "quantity": 40, "price": 3000 }],
-      "totalAmount": 120000,
+      "buyerId": "USR013",
+      "farmerId": "USR001",
+      "farmId": "F002",
+      "items": [
+        {
+          "productId": "PRD005",
+          "name": "Fresh Cabbage",
+          "unit": "kg",
+          "quantity": 50,
+          "price": 2000,
+          "subtotal": 100000
+        }
+      ],
+      "currency": "UGX",
       "paymentStatus": "failed",
       "orderStatus": "cancelled",
       "createdAt": "2024-09-08"
     },
     {
       "legacyId": "ORD006",
-      "buyerId": "B002",
-      "farmerId": "F006",
-      "farmId": "FRM006",
-      "items": [{ "productId": "PRD016", "quantity": 75, "price": 1600 }],
-      "totalAmount": 120000,
+      "buyerId": "USR015",
+      "farmerId": "USR003",
+      "farmId": "F006",
+      "items": [
+        {
+          "productId": "PRD006",
+          "name": "Green Pepper",
+          "unit": "kg",
+          "quantity": 40,
+          "price": 4500,
+          "subtotal": 180000
+        }
+      ],
+      "currency": "UGX",
       "paymentStatus": "paid",
-      "orderStatus": "shipped",
+      "orderStatus": "delivered",
       "createdAt": "2024-09-10"
     },
     {
       "legacyId": "ORD007",
-      "buyerId": "B003",
-      "farmerId": "F001",
-      "farmId": "FRM001",
-      "items": [{ "productId": "PRD002", "quantity": 90, "price": 1800 }],
-      "totalAmount": 162000,
-      "paymentStatus": "paid",
-      "orderStatus": "delivered",
+      "buyerId": "USR017",
+      "farmerId": "USR001",
+      "farmId": "F002",
+      "items": [
+        {
+          "productId": "PRD007",
+          "name": "Coffee Beans",
+          "unit": "kg",
+          "quantity": 80,
+          "price": 15000,
+          "subtotal": 1200000
+        }
+      ],
+      "currency": "UGX",
+      "paymentStatus": "pending",
+      "orderStatus": "in-transit",
       "createdAt": "2024-09-12"
     },
     {
       "legacyId": "ORD008",
-      "buyerId": "B004",
-      "farmerId": "F002",
-      "farmId": "FRM002",
-      "items": [{ "productId": "PRD005", "quantity": 70, "price": 2100 }],
-      "totalAmount": 147000,
+      "buyerId": "USR019",
+      "farmerId": "USR003",
+      "farmId": "F006",
+      "items": [
+        {
+          "productId": "PRD008",
+          "name": "Arabica Coffee",
+          "unit": "kg",
+          "quantity": 55,
+          "price": 18000,
+          "subtotal": 990000
+        }
+      ],
+      "currency": "UGX",
       "paymentStatus": "pending",
-      "orderStatus": "processing",
-      "createdAt": "2024-09-14"
+      "orderStatus": "in-transit",
+      "createdAt": "2026-02-14"
     },
     {
       "legacyId": "ORD009",
-      "buyerId": "B001",
-      "farmerId": "F003",
-      "farmId": "FRM003",
-      "items": [{ "productId": "PRD008", "quantity": 55, "price": 2000 }],
-      "totalAmount": 110000,
+      "buyerId": "USR020",
+      "farmerId": "USR005",
+      "farmId": "F009",
+      "items": [
+        {
+          "productId": "PRD016",
+          "name": "Yam Tubers",
+          "unit": "kg",
+          "quantity": 100,
+          "price": 3000,
+          "subtotal": 300000
+        }
+      ],
+      "currency": "UGX",
       "paymentStatus": "paid",
       "orderStatus": "delivered",
       "createdAt": "2024-09-15"
     },
     {
       "legacyId": "ORD010",
-      "buyerId": "B002",
-      "farmerId": "F004",
-      "farmId": "FRM004",
-      "items": [{ "productId": "PRD010", "quantity": 80, "price": 2000 }],
-      "totalAmount": 160000,
+      "buyerId": "USR007",
+      "farmerId": "USR001",
+      "farmId": "F002",
+      "items": [
+        {
+          "productId": "PRD010",
+          "name": "Sweet Potatoes",
+          "unit": "kg",
+          "quantity": 80,
+          "price": 1800,
+          "subtotal": 144000
+        }
+      ],
+      "currency": "UGX",
       "paymentStatus": "paid",
-      "orderStatus": "shipped",
+      "orderStatus": "delivered",
       "createdAt": "2024-09-17"
     },
     {
       "legacyId": "ORD011",
-      "buyerId": "B003",
-      "farmerId": "F005",
-      "farmId": "FRM005",
-      "items": [{ "productId": "PRD014", "quantity": 30, "price": 2800 }],
-      "totalAmount": 84000,
+      "buyerId": "USR008",
+      "farmerId": "USR003",
+      "farmId": "F006",
+      "items": [
+        {
+          "productId": "PRD011",
+          "name": "Cassava",
+          "unit": "kg",
+          "quantity": 70,
+          "price": 1600,
+          "subtotal": 84000
+        }
+      ],
+      "currency": "UGX",
       "paymentStatus": "pending",
-      "orderStatus": "processing",
+      "orderStatus": "in-transit",
       "createdAt": "2024-09-18"
     },
     {
       "legacyId": "ORD012",
-      "buyerId": "B004",
-      "farmerId": "F006",
-      "farmId": "FRM006",
-      "items": [{ "productId": "PRD017", "quantity": 65, "price": 2100 }],
-      "totalAmount": 136500,
+      "buyerId": "USR009",
+      "farmerId": "USR004",
+      "farmId": "F007",
+      "items": [
+        {
+          "productId": "PRD012",
+          "name": "Pumpkins",
+          "unit": "piece",
+          "quantity": 90,
+          "price": 1650,
+          "subtotal": 148500
+        }
+      ],
+      "currency": "UGX",
       "paymentStatus": "paid",
       "orderStatus": "delivered",
       "createdAt": "2024-09-19"
     },
     {
       "legacyId": "ORD013",
-      "buyerId": "B001",
-      "farmerId": "F002",
-      "farmId": "FRM002",
-      "items": [{ "productId": "PRD006", "quantity": 95, "price": 2300 }],
-      "totalAmount": 218500,
+      "buyerId": "USR010",
+      "farmerId": "USR005",
+      "farmId": "F009",
+      "items": [
+        {
+          "productId": "PRD017",
+          "name": "Cocoyam",
+          "unit": "kg",
+          "quantity": 50,
+          "price": 2800,
+          "subtotal": 140000
+        }
+      ],
+      "currency": "UGX",
       "paymentStatus": "paid",
       "orderStatus": "delivered",
       "createdAt": "2024-09-21"
     },
     {
       "legacyId": "ORD014",
-      "buyerId": "B002",
-      "farmerId": "F001",
-      "farmId": "FRM001",
-      "items": [{ "productId": "PRD003", "quantity": 110, "price": 1900 }],
-      "totalAmount": 209000,
+      "buyerId": "USR013",
+      "farmerId": "USR003",
+      "farmId": "F006",
+      "items": [
+        {
+          "productId": "PRD018",
+          "name": "Irish Potatoes",
+          "unit": "kg",
+          "quantity": 85,
+          "price": 1650,
+          "subtotal": 140250
+        }
+      ],
+      "currency": "UGX",
       "paymentStatus": "paid",
       "orderStatus": "delivered",
       "createdAt": "2024-09-22"
     },
     {
       "legacyId": "ORD015",
-      "buyerId": "B003",
-      "farmerId": "F004",
-      "farmId": "FRM004",
-      "items": [{ "productId": "PRD011", "quantity": 60, "price": 1750 }],
-      "totalAmount": 105000,
+      "buyerId": "USR015",
+      "farmerId": "USR004",
+      "farmId": "F004",
+      "items": [
+        {
+          "productId": "PRD019",
+          "name": "Soy Beans",
+          "unit": "kg",
+          "quantity": 50,
+          "price": 4200,
+          "subtotal": 210000
+        }
+      ],
+      "currency": "UGX",
       "paymentStatus": "failed",
       "orderStatus": "cancelled",
       "createdAt": "2024-09-23"
     },
     {
       "legacyId": "ORD016",
-      "buyerId": "B004",
-      "farmerId": "F003",
-      "farmId": "FRM003",
-      "items": [{ "productId": "PRD012", "quantity": 85, "price": 1650 }],
-      "totalAmount": 140250,
+      "buyerId": "USR017",
+      "farmerId": "USR003",
+      "farmId": "F005",
+      "items": [
+        {
+          "productId": "PRD021",
+          "name": "White Maize",
+          "unit": "kg",
+          "quantity": 100,
+          "price": 2400,
+          "subtotal": 240000
+        }
+      ],
+
       "paymentStatus": "paid",
-      "orderStatus": "shipped",
+      "orderStatus": "delivered",
       "createdAt": "2024-09-24"
     },
+
     {
       "legacyId": "ORD017",
-      "buyerId": "B001",
-      "farmerId": "F006",
-      "farmId": "FRM006",
-      "items": [{ "productId": "PRD018", "quantity": 45, "price": 2400 }],
-      "totalAmount": 108000,
+      "buyerId": "USR020",
+      "farmerId": "USR002",
+      "farmId": "F003",
+      "items": [
+        {
+          "productId": "PRD023",
+          "name": "Fresh Okra",
+          "unit": "kg",
+          "quantity": 100,
+          "price": 3000,
+          "subtotal": 300000
+        }
+      ],
+      "totalAmount": 130000,
       "paymentStatus": "pending",
       "orderStatus": "processing",
-      "createdAt": "2024-09-25"
+      "createdAt": "2026-02-26"
     },
     {
       "legacyId": "ORD018",
-      "buyerId": "B002",
-      "farmerId": "F005",
-      "farmId": "FRM005",
-      "items": [{ "productId": "PRD015", "quantity": 50, "price": 2600 }],
-      "totalAmount": 130000,
-      "paymentStatus": "paid",
-      "orderStatus": "delivered",
-      "createdAt": "2024-09-26"
-    },
-    {
-      "legacyId": "ORD019",
-      "buyerId": "B003",
-      "farmerId": "F002",
-      "farmId": "FRM002",
-      "items": [{ "productId": "PRD004", "quantity": 140, "price": 1500 }],
+      "buyerId": "USR007",
+      "farmerId": "USR005",
+      "farmId": "F008",
+      "items": [
+        {
+          "productId": "PRD025",
+          "name": "Cassava Flour",
+          "unit": "kg",
+          "quantity": 100,
+          "price": 3500,
+          "subtotal": 350000
+        }
+      ],
+      "currency": "UGX",
       "totalAmount": 210000,
-      "paymentStatus": "paid",
-      "orderStatus": "delivered",
+      "paymentStatus": "pending",
+      "orderStatus": "in-transit",
       "createdAt": "2024-09-27"
     },
     {
+      "legacyId": "ORD019",
+      "buyerId": "USR019",
+      "farmerId": "USR003",
+      "farmId": "F005",
+      "items": [
+        {
+          "productId": "PRD022",
+          "name": "Sorghum",
+          "unit": "kg",
+          "quantity": 200,
+          "price": 2100,
+          "subtotal": 42000
+        }
+      ],
+      "currency": "UGX",
+      "paymentStatus": "fail",
+      "orderStatus": "cancelled",
+      "createdAt": "2024-09-25"
+    },
+    {
       "legacyId": "ORD020",
-      "buyerId": "B004",
-      "farmerId": "F001",
-      "farmId": "FRM001",
-      "items": [{ "productId": "PRD001", "quantity": 200, "price": 2500 }],
-      "totalAmount": 500000,
+      "buyerId": "USR008",
+      "farmerId": "USR002",
+      "farmId": "F003",
+      "items": [
+        {
+          "productId": "PRD033",
+          "name": "Irish Potatoes",
+          "unit": "kg",
+          "quantity": 100,
+          "price": 2200,
+          "subtotal": 220000
+        }
+      ],
+      "currency": "UGX",
       "paymentStatus": "paid",
       "orderStatus": "delivered",
       "createdAt": "2024-09-28"
     },
     {
       "legacyId": "ORD021",
-      "buyerId": "B001",
-      "farmerId": "F004",
-      "farmId": "FRM004",
-      "items": [{ "productId": "PRD010", "quantity": 70, "price": 2000 }],
-      "totalAmount": 140000,
+      "buyerId": "USR009",
+      "farmerId": "USR012",
+      "farmId": "F014",
+      "items": [
+        {
+          "productId": "PRD036",
+          "name": "Beans",
+          "unit": "kg",
+          "quantity": 50,
+          "price": 3000,
+          "subtotal": 150000
+        }
+      ],
+      "currency": "UGX",
       "paymentStatus": "pending",
       "orderStatus": "processing",
       "createdAt": "2024-09-29"
     },
     {
       "legacyId": "ORD022",
-      "buyerId": "B002",
-      "farmerId": "F003",
-      "farmId": "FRM003",
-      "items": [{ "productId": "PRD007", "quantity": 95, "price": 2200 }],
+      "buyerId": "USR010",
+      "farmerId": "USR018",
+      "farmId": "F012",
+      "items": [
+        {
+          "productId": "PRD007",
+          "name": "Carrot Juice",
+          "unit": "kg",
+          "quantity": 150,
+          "price": 4000,
+          "subtotal": 600000
+        }
+      ],
       "totalAmount": 209000,
       "paymentStatus": "paid",
       "orderStatus": "delivered",
