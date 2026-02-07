@@ -8,10 +8,4 @@ const data = JSON.parse(rawData);
 export const users = data.users;
 export const farms = data.farms;
 export const products = data.products;
-
-// import data from "../data/newDB.json" assert { type: "json" };
-
-// export const users = data.users;
-// export const farms = data.farms;
-// export const products = data.products;
-// export const categories = data.categories;
+export const orders = data.orders;

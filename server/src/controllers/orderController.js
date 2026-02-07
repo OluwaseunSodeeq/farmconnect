@@ -1,5 +1,4 @@
 import Product from "../models/Product.js";
-import { readDB } from "../services/db.service.js";
 
 // --------------------
 // ORDERS CONTROLLERS FOR ADMIN
@@ -54,7 +53,7 @@ export const createOrder = async (req, res) => {
 };
 
 // GET ALL ORDERS
-export const getAllOderById = async (req, res) => {
+export const getAllOrders = async (req, res) => {
   try {
     const orders = await Order.find()
       .populate("buyer farmer farm")

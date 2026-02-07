@@ -7,6 +7,7 @@ import adminRoutes from "./routes/admin.routes.js";
 import usersRoutes from "./routes/users.routes.js";
 import farmsRoutes from "./routes/farms.routes.js";
 import productsRoutes from "./routes/products.routes.js";
+import orderRoutes from "./routes/orders.routes.js";
 
 dotenv.config();
 
@@ -34,5 +35,6 @@ app.use("/api/v1/admin", adminRoutes); // admin routes
 app.use("/api/v1/users", usersRoutes); // user routes
 app.use("/api/v1/farms", farmsRoutes); // farm routes
 app.use("/api/v1/products", productsRoutes); // product routes
+app.use("/api/v1/orders", orderRoutes);
 
 export default app;

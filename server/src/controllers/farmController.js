@@ -1,4 +1,4 @@
-import Farm from "../models/Farm";
+import Farm from "../models/Farm.js";
 
 // GET ALL FARMS
 export const getAllFarms = async (req, res) => {

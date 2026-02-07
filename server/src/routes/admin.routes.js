@@ -1,19 +1,20 @@
 import express from "express";
 
-import {
-  getAllOrders,
-  getAllProducts,
-  getAllUsers,
-} from "../controllers/adminController.js";
+// import {
+//   getAllOrders,
+//   getAllProducts,
+//   getAllUsers,
+// } from "../controllers/adminController.js";
 
 const adminRouter = express.Router();
 
-// ROUTES
-adminRouter.get("/orders", getAllOrders);
-adminRouter.get("/users", getAllUsers);
-adminRouter.get("/products", getAllProducts);
+// // ROUTES
+// adminRouter.get("/orders", getAllOrders);
+// adminRouter.get("/users", getAllUsers);
+// adminRouter.get("/products", getAllProducts);
 
 export default adminRouter;
+// ===============
 
 // import express from "express";
 // import fs from "fs";

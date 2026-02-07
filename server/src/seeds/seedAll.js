@@ -2,12 +2,15 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 import seedUsers from "./seedUsers.js";
+import seedCategories from "./seedCategories.js";
 import seedFarms from "./seedFarms.js";
 import seedProducts from "./seedProducts.js";
+import seedOrders from "./seedOrders.js";
 
 import User from "../models/User.js";
 import Farm from "../models/Farm.js";
 import Product from "../models/Product.js";
+import Order from "../models/Order.js";
 
 dotenv.config({ path: "./config.env" });
 
@@ -21,17 +24,20 @@ const seedAll = async () => {
     await mongoose.connect(DB);
     console.log("✅ DB connected");
 
-    // Wipe in correct order
+    // WIPE (children → parents)
+    await Order.deleteMany();
     await Product.deleteMany();
     await Farm.deleteMany();
     await User.deleteMany();
 
-    // Seed each collection
+    // SEED (parents → children)
     await seedUsers();
+    await seedCategories();
     await seedFarms();
     await seedProducts();
+    await seedOrders();
 
-    console.log("✅ All data seeded successfully");
+    console.log("🎉 ALL DATA SEEDED SUCCESSFULLY");
     process.exit();
   } catch (err) {
     console.error("❌ Seeding failed:", err.message);

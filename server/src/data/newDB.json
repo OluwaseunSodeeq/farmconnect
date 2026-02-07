@@ -993,7 +993,7 @@
           "unit": "kg",
           "quantity": 120,
           "price": 2500,
-          "subtotal": 300000
+          "total": 300000
         }
       ],
       "totalAmount": 300000,
@@ -1015,9 +1015,10 @@
           "unit": "kg",
           "quantity": 100,
           "price": 3500,
-          "subtotal": 350000
+          "total": 350000
         }
       ],
+      "totalAmount": 350000,
       "currency": "UGX",
       "paymentStatus": "paid",
       "orderStatus": "delivered",
@@ -1027,7 +1028,7 @@
       "legacyId": "ORD003",
       "buyerId": "USR009",
       "farmerId": "USR003",
-      "farmId": "FRM005",
+      "farmId": "F005",
       "items": [
         {
           "productId": "PRD003",
@@ -1035,9 +1036,11 @@
           "unit": "kg",
           "quantity": 60,
           "price": 2200,
-          "subtotal": 132000
+          "total": 132000
         }
       ],
+      "totalAmount": 132000,
+      "currency": "UGX",
       "paymentStatus": "pending",
       "orderStatus": "processing",
       "createdAt": "2024-09-05"
@@ -1054,9 +1057,10 @@
           "unit": "kg",
           "quantity": 85,
           "price": 3000,
-          "subtotal": 255000
+          "total": 255000
         }
       ],
+      "totalAmount": 255000,
       "currency": "UGX",
       "paymentStatus": "paid",
       "orderStatus": "delivered",
@@ -1074,9 +1078,10 @@
           "unit": "kg",
           "quantity": 50,
           "price": 2000,
-          "subtotal": 100000
+          "total": 100000
         }
       ],
+      "totalAmount": 100000,
       "currency": "UGX",
       "paymentStatus": "failed",
       "orderStatus": "cancelled",
@@ -1094,9 +1099,10 @@
           "unit": "kg",
           "quantity": 40,
           "price": 4500,
-          "subtotal": 180000
+          "total": 180000
         }
       ],
+      "totalAmount": 180000,
       "currency": "UGX",
       "paymentStatus": "paid",
       "orderStatus": "delivered",
@@ -1114,9 +1120,10 @@
           "unit": "kg",
           "quantity": 80,
           "price": 15000,
-          "subtotal": 1200000
+          "total": 1200000
         }
       ],
+      "totalAmount": 1200000,
       "currency": "UGX",
       "paymentStatus": "pending",
       "orderStatus": "in-transit",
@@ -1134,9 +1141,10 @@
           "unit": "kg",
           "quantity": 55,
           "price": 18000,
-          "subtotal": 990000
+          "total": 990000
         }
       ],
+      "totalAmount": 990000,
       "currency": "UGX",
       "paymentStatus": "pending",
       "orderStatus": "in-transit",
@@ -1154,9 +1162,10 @@
           "unit": "kg",
           "quantity": 100,
           "price": 3000,
-          "subtotal": 300000
+          "total": 300000
         }
       ],
+      "totalAmount": 300000,
       "currency": "UGX",
       "paymentStatus": "paid",
       "orderStatus": "delivered",
@@ -1174,9 +1183,10 @@
           "unit": "kg",
           "quantity": 80,
           "price": 1800,
-          "subtotal": 144000
+          "total": 144000
         }
       ],
+      "totalAmount": 144000,
       "currency": "UGX",
       "paymentStatus": "paid",
       "orderStatus": "delivered",
@@ -1194,9 +1204,10 @@
           "unit": "kg",
           "quantity": 70,
           "price": 1600,
-          "subtotal": 84000
+          "total": 84000
         }
       ],
+      "totalAmount": 84000,
       "currency": "UGX",
       "paymentStatus": "pending",
       "orderStatus": "in-transit",
@@ -1214,9 +1225,10 @@
           "unit": "piece",
           "quantity": 90,
           "price": 1650,
-          "subtotal": 148500
+          "total": 148500
         }
       ],
+      "totalAmount": 148500,
       "currency": "UGX",
       "paymentStatus": "paid",
       "orderStatus": "delivered",
@@ -1234,9 +1246,10 @@
           "unit": "kg",
           "quantity": 50,
           "price": 2800,
-          "subtotal": 140000
+          "total": 140000
         }
       ],
+      "totalAmount": 140000,
       "currency": "UGX",
       "paymentStatus": "paid",
       "orderStatus": "delivered",
@@ -1254,9 +1267,10 @@
           "unit": "kg",
           "quantity": 85,
           "price": 1650,
-          "subtotal": 140250
+          "total": 140250
         }
       ],
+      "totalAmount": 140250,
       "currency": "UGX",
       "paymentStatus": "paid",
       "orderStatus": "delivered",
@@ -1274,9 +1288,10 @@
           "unit": "kg",
           "quantity": 50,
           "price": 4200,
-          "subtotal": 210000
+          "total": 210000
         }
       ],
+      "totalAmount": 210000,
       "currency": "UGX",
       "paymentStatus": "failed",
       "orderStatus": "cancelled",
@@ -1294,10 +1309,11 @@
           "unit": "kg",
           "quantity": 100,
           "price": 2400,
-          "subtotal": 240000
+          "total": 240000
         }
       ],
-
+      "totalAmount": 240000,
+      "currency": "UGX",
       "paymentStatus": "paid",
       "orderStatus": "delivered",
       "createdAt": "2024-09-24"
@@ -1315,10 +1331,11 @@
           "unit": "kg",
           "quantity": 100,
           "price": 3000,
-          "subtotal": 300000
+          "total": 300000
         }
       ],
-      "totalAmount": 130000,
+      "totalAmount": 300000,
+      "currency": "UGX",
       "paymentStatus": "pending",
       "orderStatus": "processing",
       "createdAt": "2026-02-26"
@@ -1335,11 +1352,11 @@
           "unit": "kg",
           "quantity": 100,
           "price": 3500,
-          "subtotal": 350000
+          "total": 350000
         }
       ],
-      "currency": "UGX",
       "totalAmount": 210000,
+      "currency": "UGX",
       "paymentStatus": "pending",
       "orderStatus": "in-transit",
       "createdAt": "2024-09-27"
@@ -1356,11 +1373,12 @@
           "unit": "kg",
           "quantity": 200,
           "price": 2100,
-          "subtotal": 42000
+          "total": 42000
         }
       ],
+      "totalAmount": 42000,
       "currency": "UGX",
-      "paymentStatus": "fail",
+      "paymentStatus": "failed",
       "orderStatus": "cancelled",
       "createdAt": "2024-09-25"
     },
@@ -1376,9 +1394,10 @@
           "unit": "kg",
           "quantity": 100,
           "price": 2200,
-          "subtotal": 220000
+          "total": 220000
         }
       ],
+      "totalAmount": 220000,
       "currency": "UGX",
       "paymentStatus": "paid",
       "orderStatus": "delivered",
@@ -1396,9 +1415,10 @@
           "unit": "kg",
           "quantity": 50,
           "price": 3000,
-          "subtotal": 150000
+          "total": 150000
         }
       ],
+      "totalAmount": 150000,
       "currency": "UGX",
       "paymentStatus": "pending",
       "orderStatus": "processing",
@@ -1416,10 +1436,11 @@
           "unit": "kg",
           "quantity": 150,
           "price": 4000,
-          "subtotal": 600000
+          "total": 600000
         }
       ],
-      "totalAmount": 209000,
+      "totalAmount": 600000,
+      "currency": "UGX",
       "paymentStatus": "paid",
       "orderStatus": "delivered",
       "createdAt": "2024-09-30"
