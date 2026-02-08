@@ -31,10 +31,10 @@ app.use((req, res, next) => {
 });
 
 /* ========= Admin APIs Routes ========= */
-app.use("/api/v1/admin", adminRoutes); // admin routes
-app.use("/api/v1/users", usersRoutes); // user routes
-app.use("/api/v1/farms", farmsRoutes); // farm routes
-app.use("/api/v1/products", productsRoutes); // product routes
+app.use("/api/v1/admin", adminRoutes);
+app.use("/api/v1/users", usersRoutes); // users routes
+app.use("/api/v1/farms", farmsRoutes);
+app.use("/api/v1/products", productsRoutes);
 app.use("/api/v1/orders", orderRoutes);
 
 export default app;
