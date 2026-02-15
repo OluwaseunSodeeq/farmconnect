@@ -55,9 +55,16 @@ export const createOrder = async (req, res) => {
 // GET ALL ORDERS
 export const getAllOrders = async (req, res) => {
   try {
-    const orders = await Order.find()
-      .populate("buyer farmer farm")
-      .populate("items.product");
+    const features = new APIFeatures(Order.find(), req.query)
+      .filter()
+      .sort()
+      .visibleData()
+      .paginate();
+
+    const orders = await features.query;
+    // const orders = await Order.find()
+    //   .populate("buyer farmer farm")
+    //   .populate("items.product");
 
     res.status(200).json({
       status: "success",

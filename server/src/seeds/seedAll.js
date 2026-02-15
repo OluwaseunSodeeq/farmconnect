@@ -25,10 +25,10 @@ const seedAll = async () => {
     console.log("✅ DB connected");
 
     // WIPE (children → parents)
-    await Order.deleteMany();
-    await Product.deleteMany();
-    await Farm.deleteMany();
     await User.deleteMany();
+    await Farm.deleteMany();
+    await Product.deleteMany();
+    await Order.deleteMany();
 
     // SEED (parents → children)
     await seedUsers();

@@ -7,7 +7,8 @@
       "businessName": "Mukasa Farm",
       "phone": "+256700123456",
       "location": "Kampala",
-      "status": "verified",
+      "status": "active",
+      "verificationStatus": "verified",
       "email": "johnmukasa@gmail.com",
       "createdAt": "2024-01-15"
     },
@@ -18,7 +19,8 @@
       "businessName": "Green Valley Farm",
       "phone": "+256700234567",
       "location": "Jinja",
-      "status": "verified",
+      "status": "active",
+      "verificationStatus": "verified",
       "email": "marynambi@gmail.com",
       "createdAt": "2024-02-20"
     },
@@ -30,6 +32,7 @@
       "phone": "+256700345678",
       "location": "Mbale",
       "status": "pending",
+      "verificationStatus": "pending",
       "email": "davidouma@gmail.com",
       "createdAt": "2024-09-10"
     },
@@ -40,7 +43,8 @@
       "businessName": "Akello Organic",
       "phone": "+256700456789",
       "location": "Gulu",
-      "status": "verified",
+      "status": "active",
+      "verificationStatus": "verified",
       "email": "sarahakello@gmail.com",
       "createdAt": "2024-03-05"
     },
@@ -52,6 +56,7 @@
       "phone": "+256700567890",
       "location": "Kabale",
       "status": "inactive",
+      "verificationStatus": "rejected",
       "email": "petermwesigwa@gmail.com",
       "createdAt": "2024-04-12"
     },
@@ -63,6 +68,7 @@
       "phone": "+256700567891",
       "location": "Kabale",
       "status": "inactive",
+      "verificationStatus": "rejected",
       "email": "peterfatomilola@gmail.com",
       "createdAt": "2024-04-21"
     },
@@ -75,6 +81,7 @@
       "phone": "+256700111222",
       "location": "Kampala",
       "status": "active",
+      "verificationStatus": "verified",
       "email": "jane@gmail.com",
       "createdAt": "2023-11-10"
     },
@@ -86,6 +93,7 @@
       "phone": "+256700222333",
       "location": "Entebbe",
       "status": "active",
+      "verificationStatus": "verified",
       "email": "tomodongo@gmail.com",
       "createdAt": "2023-12-15"
     },
@@ -97,6 +105,7 @@
       "phone": "+256700333444",
       "location": "Kampala",
       "status": "active",
+      "verificationStatus": "verified",
       "email": "alicenamukasa@gmail.com",
       "createdAt": "2024-01-20"
     },
@@ -108,6 +117,7 @@
       "phone": "+256700444555",
       "location": "Jinja",
       "status": "inactive",
+      "verificationStatus": "rejected",
       "email": "jamesokello@gmail.com",
       "createdAt": "2024-02-28"
     },
@@ -130,7 +140,8 @@
       "businessName": "Ade Farms",
       "phone": "+2348099911223",
       "location": "Ibadan",
-      "status": "verified",
+      "status": "active",
+      "verificationStatus": "verified",
       "email": "samuelade@gmail.com",
       "createdAt": "2024-01-18"
     },
@@ -142,6 +153,7 @@
       "phone": "+2347012233445",
       "location": "Lagos",
       "status": "active",
+      "verificationStatus": "verified",
       "email": "ngoziokorie@gmail.com",
       "createdAt": "2024-02-01"
     },
@@ -152,7 +164,8 @@
       "businessName": "Kato Produce",
       "phone": "+256788901122",
       "location": "Mbarara",
-      "status": "verified",
+      "status": "active",
+      "verificationStatus": "verified",
       "email": "danielkato@gmail.com",
       "createdAt": "2024-05-05"
     },
@@ -164,6 +177,7 @@
       "phone": "+2348123344556",
       "location": "Abuja",
       "status": "active",
+      "verificationStatus": "verified",
       "email": "fatimasule@gmail.com",
       "createdAt": "2024-04-11"
     },
@@ -175,6 +189,7 @@
       "phone": "+256701998877",
       "location": "Mukono",
       "status": "pending",
+      "verificationStatus": "pending",
       "email": "moses@gmail.com",
       "createdAt": "2024-06-08"
     },
@@ -186,6 +201,7 @@
       "phone": "+2348098765432",
       "location": "Lagos",
       "status": "active",
+      "verificationStatus": "verified",
       "email": "henrycole@gmail.com",
       "createdAt": "2024-03-19"
     },
@@ -196,7 +212,8 @@
       "businessName": "Atieno Greens",
       "phone": "+254712345678",
       "location": "Kisumu",
-      "status": "verified",
+      "status": "active",
+      "verificationStatus": "verified",
       "email": "graceatieno@gmail.com",
       "createdAt": "2024-02-26"
     },
@@ -208,6 +225,7 @@
       "phone": "+233241112233",
       "location": "Accra",
       "status": "inactive",
+      "verificationStatus": "rejected",
       "email": "paulmensaht@gmail.com",
       "createdAt": "2023-12-02"
     },
@@ -219,6 +237,7 @@
       "phone": "+233241112234",
       "location": "Accra",
       "status": "inactive",
+      "verificationStatus": "rejected",
       "email": "adebowale@gmail.com",
       "createdAt": "2023-12-02"
     },
@@ -230,6 +249,7 @@
       "phone": "+0000000000",
       "location": "HQ",
       "status": "active",
+      "verificationStatus": "verified",
       "email": "adminfarmconnect@gmail.com",
       "createdAt": "2023-01-01"
     }

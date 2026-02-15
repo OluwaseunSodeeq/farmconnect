@@ -1,5 +1,4 @@
 import express from "express";
-// import { checkUserId, checkUserBody } from "../controllers/userController.js";
 import {
   getAllUsers,
   getUser,
@@ -7,14 +6,13 @@ import {
   deleteUser,
   createUser,
 } from "../controllers/userController.js";
+import { getUserStats } from "../Ui/getUsersStats.js";
 const usersRouter = express.Router();
-
-// usersRouter.param("id", checkUserId);
-// usersRouter.param("id");
 
 // --------------------
 // ROUTES
 // --------------------
+usersRouter.route("/stats", getUserStats);
 usersRouter.route("/").get(getAllUsers).post(createUser);
 usersRouter.route("/:id").get(getUser).patch(updateUser).delete(deleteUser);
 

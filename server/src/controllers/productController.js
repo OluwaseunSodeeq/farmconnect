@@ -1,3 +1,4 @@
+import APIFeatures from "../utils/apiFeatures.js";
 import Farm from "../models/Farm.js";
 import Product from "../models/Product.js";
 
@@ -6,7 +7,15 @@ import Product from "../models/Product.js";
  */
 export const getAllProducts = async (req, res) => {
   try {
-    const products = await Product.find().populate("farmer").populate("farm");
+    const features = new APIFeatures(Product.find(), req.query)
+      .filter()
+      .sort()
+      .limitFields()
+      .paginate();
+
+    const products = await features.query;
+
+    // const products = await Product.find().populate("farmer").populate("farm");
 
     res.status(200).json({
       status: "success",

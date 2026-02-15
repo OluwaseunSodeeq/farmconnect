@@ -61,14 +61,17 @@ const userSchema = new mongoose.Schema(
 
     status: {
       type: String,
-      enum: ["active", "suspended", "pending", "inactive", "verified"],
+      enum: ["active", "suspended", "pending", "inactive"],
       default: "pending",
     },
 
-    isActive: {
-      type: Boolean,
-      default: true,
+    verificationStatus: {
+      type: String,
+      enum: ["pending", "verified", "rejected"],
+      default: "pending",
+      index: true,
     },
+
     legacyId: {
       type: String,
       unique: true,
