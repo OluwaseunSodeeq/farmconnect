@@ -34,13 +34,14 @@ class APIFeatures {
     } else {
       this.query = this.query.sort("-createdAt");
     }
+    return this;
   }
 
   // =========================
   // FIELD LIMITING
   // =========================
   limitFields() {
-    if (this.queryString.field) {
+    if (this.queryString.fields) {
       const fields = this.queryString.fields.split(",").join(" ");
       this.query = this.query.select(fields);
     } else {
@@ -65,16 +66,6 @@ class APIFeatures {
   // =========================
   // VISIBLE DATA
   // =========================
-  visibleDataaa() {}
-  //   visibleData() {
-  //     if (this.queryString.visible && !this.queryString.page) {
-  //       const limit = parseInt(this.queryString.visible, 10) || 10;
-  //       this.query = this.query.sort("-createdAt").limit(limit);
-  //     }
-  //     return this;
-  //   }
-  // ============== At the frontend, call with GET /users?visible=5 =========
-  // =========GET /users?page=1&limit=20
 
   visibleData(defaultLimit = 5) {
     if (!this.queryString.page && !this.queryString.limit) {
@@ -103,6 +94,19 @@ class APIFeatures {
   }
 }
 
+export default APIFeatures;
+
 // Frontendcalls:
 // “View All” : GET /users?page=1&limit=20
 // Filter : GET /users?role=farmer&page=1&limit=10
+
+//  visibleDataaa() {}
+//   visibleData() {
+//     if (this.queryString.visible && !this.queryString.page) {
+//       const limit = parseInt(this.queryString.visible, 10) || 10;
+//       this.query = this.query.sort("-createdAt").limit(limit);
+//     }
+//     return this;
+//   }
+// ============== At the frontend, call with GET /users?visible=5 =========
+// =========GET /users?page=1&limit=20

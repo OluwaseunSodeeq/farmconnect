@@ -58,7 +58,17 @@ const userSchema = new mongoose.Schema(
       unique: true,
       lowercase: true,
     },
-
+    password: {
+      type: String,
+      required: [true, "Please provide a valid email"],
+      unique: true,
+      minlength: 8,
+    },
+    confirmPassword: {
+      type: String,
+      required: [true, "Please confirm your password"],
+      unique: true,
+    },
     status: {
       type: String,
       enum: ["active", "suspended", "pending", "inactive"],
