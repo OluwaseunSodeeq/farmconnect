@@ -46,7 +46,34 @@ const seedAll = async () => {
 };
 
 seedAll();
+// const seedAll = async () => {
+//   try {
+//     await mongoose.connect(DB);
+//     console.log("✅ DB connected");
 
+//     // WIPE
+//     await User.deleteMany();
+//     await Farm.deleteMany();
+//     await Product.deleteMany();
+//     await Order.deleteMany();
+
+//     // SEED
+//     await seedUsers();
+//     await seedCategories();
+//     await seedFarms();
+//     await seedProducts();
+//     await seedOrders();
+
+//     console.log("🎉 ALL DATA SEEDED SUCCESSFULLY");
+
+//     await mongoose.disconnect();
+//     process.exit(0);
+//   } catch (err) {
+//     console.error("❌ Seeding failed:", err.message);
+//     process.exit(1);
+//   }
+// };
+// seedAll();
 // =======
 // import dotenv from "dotenv";
 // import mongoose from "mongoose";

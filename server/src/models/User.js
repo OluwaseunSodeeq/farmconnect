@@ -20,6 +20,7 @@
 // // Model creation
 // export const User = mongoose.model("User", userSchema);
 
+import bcrypt from "bcryptjs";
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
@@ -60,15 +61,11 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: [true, "Please provide a valid email"],
-      unique: true,
+      required: [true, "Please provide a password"],
       minlength: 8,
+      select: false,
     },
-    confirmPassword: {
-      type: String,
-      required: [true, "Please confirm your password"],
-      unique: true,
-    },
+
     status: {
       type: String,
       enum: ["active", "suspended", "pending", "inactive"],
@@ -93,6 +90,21 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
   },
 );
+
+userSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) return next();
+
+  this.password = await bcrypt.hash(this.password, 12);
+  next();
+});
+
+// COMPARE PASSWORD
+userSchema.methods.correctPassword = async function (
+  candidatePassword,
+  userPassword,
+) {
+  return await bcrypt.compare(candidatePassword, userPassword);
+};
 
 const User = mongoose.model("User", userSchema);
 export default User;

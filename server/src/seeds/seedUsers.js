@@ -1,22 +1,54 @@
+import bcrypt from "bcryptjs";
 import User from "../models/User.js";
-import { users } from "./data.js";
+import { users } from "./data.js"; // your user dataset
+
+// Helper function to generate a password <= 12 chars
+const generatePassword = (legacyId) => {
+  // Simple 12-char password based on legacyId
+  // You can customize the pattern if needed
+  const base = `F@${legacyId}`; // e.g. F@USR020
+  return base.length > 12 ? base.slice(0, 12) : base;
+};
 
 const seedUsers = async () => {
-  const formattedUsers = users.map((u) => ({
-    legacyId: u.legacyId,
-    name: u.name,
-    role: u.role,
-    businessName: u.businessName,
-    phone: u.phone,
-    email: u.email,
-    location: u.location,
-    status: u.status,
-    createdAt: new Date(u.createdAt),
-  }));
+  try {
+    const formattedUsers = await Promise.all(
+      users.map(async (u) => {
+        let passwordToUse;
 
-  await User.insertMany(formattedUsers);
+        if (u.password) {
+          // Use existing password
+          passwordToUse = u.password;
+        } else {
+          // Generate password for users with no password
+          passwordToUse = generatePassword(u.legacyId);
+        }
 
-  console.log("✅ Users seeded");
+        // Hash the password
+        const hashedPassword = await bcrypt.hash(passwordToUse, 12);
+
+        return {
+          legacyId: u.legacyId,
+          name: u.name,
+          role: u.role,
+          businessName: u.businessName || null,
+          phone: u.phone,
+          email: u.email.toLowerCase(),
+          location: u.location,
+          status: u.status || "pending",
+          verificationStatus: u.verificationStatus || "pending",
+          createdAt: u.createdAt ? new Date(u.createdAt) : new Date(),
+          password: hashedPassword,
+        };
+      }),
+    );
+
+    await User.insertMany(formattedUsers);
+
+    console.log("✅ Users seeded successfully");
+  } catch (err) {
+    console.error("❌ Failed to seed users:", err.message);
+  }
 };
 
 export default seedUsers;

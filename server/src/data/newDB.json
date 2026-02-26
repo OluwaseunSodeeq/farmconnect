@@ -251,6 +251,7 @@
       "status": "active",
       "verificationStatus": "verified",
       "email": "adminfarmconnect@gmail.com",
+      "password": "farmconn12345",
       "createdAt": "2023-01-01"
     }
   ],

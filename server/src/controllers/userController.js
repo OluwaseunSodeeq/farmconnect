@@ -118,3 +118,51 @@ export const deleteUser = async (req, res) => {
     });
   }
 };
+
+export const updateMe = async (req, res) => {
+  // Block role & password updates here
+  if (req.body.role || req.body.password) {
+    return res.status(400).json({
+      status: "fail",
+      message: "You cannot update role or password here",
+    });
+  }
+
+  const updatedUser = await User.findByIdAndUpdate(req.user.id, req.body, {
+    new: true,
+    runValidators: true,
+  });
+
+  res.status(200).json({
+    status: "success",
+    data: updatedUser,
+  });
+};
+export const getMe = async (req, res) => {
+  const user = await User.findById(req.user.id);
+
+  res.status(200).json({
+    status: "success",
+    data: user,
+  });
+};
+
+export const deleteMe = async (req, res) => {
+  try {
+    const user = await User.findByIdAndDelete(req.user.id);
+
+    if (!user) {
+      return res.status(404).json({
+        status: "fail",
+        message: "User not found",
+      });
+    }
+
+    res.status(204).send(); // ✅ No body for 204
+  } catch (err) {
+    res.status(400).json({
+      status: "fail",
+      message: err.message,
+    });
+  }
+};

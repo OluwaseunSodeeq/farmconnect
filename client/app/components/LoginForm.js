@@ -21,19 +21,32 @@ export default function LoginForm() {
     setError(null);
     setIsLoading(true);
 
+    // const result = await signIn("credentials", {
+    //   redirect: false,
+    //   email,
+    //   password,
+    // });
+
+    // if (result?.error) {
+    //   setError("Invalid email or password");
+    //   setIsLoading(false);
+    // } else {
+    //   setError(null);
+    //   router.replace("/home");
+    // }
     const result = await signIn("credentials", {
       redirect: false,
       email,
       password,
     });
 
-    if (result?.error) {
-      setError("Invalid email or password");
+    if (!result || result.error) {
+      setError(result?.error || "Invalid email or password");
       setIsLoading(false);
-    } else {
-      setError(null);
-      router.replace("/home");
+      return;
     }
+
+    router.replace("/home");
   };
 
   return (

@@ -5,10 +5,16 @@ const handler = NextAuth({
   providers: [
     CredentialsProvider({
       name: "Credentials",
+      credentials: {
+        email: {},
+        password: {},
+      },
       async authorize(credentials) {
-        const res = await fetch(process.env.POSTMAN_API_URL, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify({
             email: credentials.email,
             password: credentials.password,
@@ -16,23 +22,60 @@ const handler = NextAuth({
         });
 
         const data = await res.json();
-        if (!res.ok || !data.user) return null;
 
-        return {
-          id: data.user.id,
-          name: data.user.fullname,
-          email: data.user.email,
-          role: data.user.role,
-          accessToken: data.token,
-        };
+        if (!res.ok) {
+          throw new Error(data.message || "Login failed");
+        }
+
+        return data.data.user; // must return user object
       },
     }),
   ],
-  session: { strategy: "jwt" },
+
+  session: {
+    strategy: "jwt",
+  },
+
   secret: process.env.NEXTAUTH_SECRET,
 });
 
 export { handler as GET, handler as POST };
+
+// import NextAuth from "next-auth";
+// import CredentialsProvider from "next-auth/providers/credentials";
+
+// const handler = NextAuth({
+//   providers: [
+//     CredentialsProvider({
+//       name: "Credentials",
+//       async authorize(credentials) {
+//         const res = await fetch(process.env.POSTMAN_API_URL, {
+//           method: "POST",
+//           headers: { "Content-Type": "application/json" },
+//           body: JSON.stringify({
+//             email: credentials.email,
+//             password: credentials.password,
+//           }),
+//         });
+
+//         const data = await res.json();
+//         if (!res.ok || !data.user) return null;
+
+//         return {
+//           id: data.user.id,
+//           name: data.user.fullname,
+//           email: data.user.email,
+//           role: data.user.role,
+//           accessToken: data.token,
+//         };
+//       },
+//     }),
+//   ],
+//   session: { strategy: "jwt" },
+//   secret: process.env.NEXTAUTH_SECRET,
+// });
+
+// export { handler as GET, handler as POST };
 
 // import NextAuth from "next-auth";
 // import CredentialsProvider from "next-auth/providers/credentials";
