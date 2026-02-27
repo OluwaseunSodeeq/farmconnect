@@ -13,7 +13,7 @@ export default function LoginForm() {
   const router = useRouter();
 
   useEffect(() => {
-    router.prefetch("/home");
+    router.prefetch("/dashboard");
   }, [router]);
 
   const handleSubmit = async (e) => {
@@ -21,32 +21,24 @@ export default function LoginForm() {
     setError(null);
     setIsLoading(true);
 
-    // const result = await signIn("credentials", {
-    //   redirect: false,
-    //   email,
-    //   password,
-    // });
-
-    // if (result?.error) {
-    //   setError("Invalid email or password");
-    //   setIsLoading(false);
-    // } else {
-    //   setError(null);
-    //   router.replace("/home");
-    // }
     const result = await signIn("credentials", {
       redirect: false,
       email,
       password,
     });
 
-    if (!result || result.error) {
-      setError(result?.error || "Invalid email or password");
+    if (result?.error) {
+      if (result.error === "CredentialsSignin") {
+        setError("Invalid email or password");
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
+
       setIsLoading(false);
       return;
     }
 
-    router.replace("/home");
+    router.replace("/dashboard");
   };
 
   return (
@@ -88,12 +80,16 @@ export default function LoginForm() {
           required
         />
 
-        {error && <p className="text-red-500 text-center text-sm">{error}</p>}
+        {error && (
+          <div className="bg-red-50 border border-red-300 text-red-700 p-3 rounded-md text-sm text-center">
+            {error}
+          </div>
+        )}
 
         <button
           type="submit"
           disabled={isLoading}
-          className={`flex justify-center items-center gap-2 w-full text-white font-semibold py-3 rounded-md transition duration-200 ${
+          className={`flex justify-center items-center gap-2 w-full text-white font-semibold py-3 rounded-md transition duration-200 cursor-pointer ${
             isLoading
               ? "bg-green-400 cursor-not-allowed"
               : "bg-green-600 hover:bg-green-800"

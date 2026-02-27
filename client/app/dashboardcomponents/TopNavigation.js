@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "../ui/DropdownMenu";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/Avatar";
+import { signOut } from "next-auth/react";
 
 export function TopNavigation({ toggleSidebar, sidebarOpen }) {
   return (
@@ -72,7 +73,12 @@ export function TopNavigation({ toggleSidebar, sidebarOpen }) {
             </DropdownMenuItem>
             <DropdownMenuItem>Settings</DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="text-red-600">Logout</DropdownMenuItem>
+            <DropdownMenuItem
+              className="text-red-600"
+              onClick={() => signOut({ callback: "/" })}
+            >
+              Logout
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

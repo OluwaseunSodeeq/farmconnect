@@ -10,7 +10,7 @@ const montserrat = Montserrat({
 export const metadata = {
   title: "Farm Connect",
   description: "Farmers friend application",
-  icon:"/images/logo.png",
+  icon: "/images/logo.png",
 };
 
 export default function RootLayout({ children }) {
@@ -22,9 +22,6 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-
-
-
 
 // import "./globals.css";
 // import { Montserrat } from "next/font/google";

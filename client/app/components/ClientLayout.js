@@ -6,7 +6,6 @@ export default function ClientLayout({ children }) {
   return <SessionProvider>{children}</SessionProvider>;
 }
 
-
 // "use client";
 
 // import React from "react";
