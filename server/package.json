@@ -8,12 +8,18 @@
     "start:prod": "NODE_ENV=production nodemon server.js"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "cors": "^2.8.6",
     "dotenv": "^16.6.1",
     "express": "^4.19.2",
+    "express-rate-limit": "^8.2.1",
+    "ioredis": "^5.9.3",
+    "joi": "^18.0.2",
+    "jsonwebtoken": "^9.0.3",
     "mongodb": "^7.0.0",
     "mongoose": "^9.1.5",
     "morgan": "^1.10.1",
+    "rate-limit-redis": "^4.3.1",
     "uuid": "^13.0.0"
   },
   "devDependencies": {
