@@ -2,12 +2,11 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
-    const DB = process.env.DATABASE.replace(
-      "<PASSWORD>",
-      process.env.DATABASE_PASSWORD,
-    );
+    if (!process.env.DATABASE) {
+      throw new Error("DATABASE environment variable not set!");
+    }
 
-    const conn = await mongoose.connect(DB);
+    const conn = await mongoose.connect(process.env.DATABASE);
 
     console.log("✅ Connected to DB:", conn.connection.name);
   } catch (err) {
@@ -17,6 +16,24 @@ const connectDB = async () => {
 };
 
 export default connectDB;
+
+// import mongoose from "mongoose";
+
+// const connectDB = async () => {
+//   try {
+//     const conn = await mongoose.connect(process.env.DATABASE);
+
+//     console.log("✅ Connected to DB:", conn.connection.name);
+//   } catch (err) {
+//     console.error("❌ DB connection error:", err.message);
+//     process.exit(1);
+//   }
+// };
+
+// export default connectDB;
+
+// import mongoose from "mongoose";
+
 // const connectDB = async () => {
 //   try {
 //     const DB = process.env.DATABASE.replace(
@@ -24,11 +41,11 @@ export default connectDB;
 //       process.env.DATABASE_PASSWORD,
 //     );
 
-//     mongoose
-//       .connect(DB)
-//       .then(() => console.log("Connected to DB:", mongoose.connection.name));
+//     const conn = await mongoose.connect(DB);
+
+//     console.log("✅ Connected to DB:", conn.connection.name);
 //   } catch (err) {
-//     console.error("DB connection error:", err);
+//     console.error("❌ DB connection error:", err.message);
 //     process.exit(1);
 //   }
 // };

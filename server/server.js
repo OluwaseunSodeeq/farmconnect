@@ -1,10 +1,9 @@
 // Connect to DB safely, then start server
-import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./src/config/db.js";
 import app from "./src/app.js";
 
-dotenv.config({ path: "./config.env" });
+dotenv.config();
 
 const startServer = async () => {
   try {
@@ -12,15 +11,8 @@ const startServer = async () => {
 
     const PORT = process.env.PORT || 3000;
 
-    app.use(
-      cors({
-        origin: "https://farmconnect-admin.vercel.app",
-        credentials: true,
-      }),
-    );
-
     app.listen(PORT, () => {
-      console.log(`🚀 Server is running on port ${PORT}`);
+      console.log(`🚀 Server running on port ${PORT}`);
     });
   } catch (error) {
     console.error("❌ Failed to start server:", error);
@@ -29,6 +21,36 @@ const startServer = async () => {
 };
 
 startServer();
+// import cors from "cors";
+// import dotenv from "dotenv";
+// import connectDB from "./src/config/db.js";
+// import app from "./src/app.js";
+
+// dotenv.config();
+
+// const startServer = async () => {
+//   try {
+//     await connectDB();
+
+//     const PORT = process.env.PORT || 3000;
+
+//     app.use(
+//       cors({
+//         origin: "https://farmconnect-admin.vercel.app",
+//         credentials: true,
+//       }),
+//     );
+
+//     app.listen(PORT, () => {
+//       console.log(`🚀 Server is running on port ${PORT}`);
+//     });
+//   } catch (error) {
+//     console.error("❌ Failed to start server:", error);
+//     process.exit(1);
+//   }
+// };
+
+// startServer();
 
 // import cors from "cors";
 // import dotenv from "dotenv";

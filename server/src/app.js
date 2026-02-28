@@ -10,7 +10,7 @@ import productsRoutes from "./routes/products.routes.js";
 import orderRoutes from "./routes/orders.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 
-dotenv.config();
+dotenv.config({ path: "./config.env" });
 
 const app = express();
 
@@ -19,7 +19,13 @@ if (process.env.NODE_ENV === "development") {
   // third party middleware
   app.use(morgan("dev"));
 }
-app.use(cors()); //allows cross origin requests
+
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://farmconnect-admin.vercel.app"],
+    credentials: true,
+  }),
+);
 
 // built-in middleware
 app.use(express.json());
