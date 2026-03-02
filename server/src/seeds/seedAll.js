@@ -23,6 +23,7 @@ const seedAll = async () => {
   try {
     await mongoose.connect(DB);
     console.log("✅ DB connected");
+    console.log("JWT_SECRET:", process.env.JWT_SECRET);
 
     // WIPE (children → parents)
     await User.deleteMany();

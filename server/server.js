@@ -3,12 +3,11 @@ import dotenv from "dotenv";
 import connectDB from "./src/config/db.js";
 import app from "./src/app.js";
 
-dotenv.config();
+dotenv.config({ path: "./config.env" });
 
 const startServer = async () => {
   try {
     await connectDB();
-
     const PORT = process.env.PORT || 3000;
 
     app.listen(PORT, () => {
@@ -21,6 +20,7 @@ const startServer = async () => {
 };
 
 startServer();
+
 // import cors from "cors";
 // import dotenv from "dotenv";
 // import connectDB from "./src/config/db.js";

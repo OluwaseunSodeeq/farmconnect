@@ -1,5 +1,5 @@
 import express from "express";
-import { readDB, writeDB } from "../services/db.service.js";
+// import { readDB, writeDB } from "../services/db.service.js";
 import {
   createProduct,
   deleteProduct,
