@@ -11,7 +11,7 @@ const handler = NextAuth({
       },
       async authorize(credentials) {
         const res = await fetch(
-          `${process.env.BACKEND_API_BASE_URL}/api/v1/auth/login`,
+          `${process.env.BACK_API_BASE_URL}/api/v1/auth/login`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
