@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
 import morgan from "morgan";
 
 import adminRoutes from "./routes/admin.routes.js";
@@ -9,8 +8,6 @@ import farmsRoutes from "./routes/farms.routes.js";
 import productsRoutes from "./routes/products.routes.js";
 import orderRoutes from "./routes/orders.routes.js";
 import authRoutes from "./routes/auth.routes.js";
-
-dotenv.config({ path: "./config.env" });
 
 const app = express();
 
