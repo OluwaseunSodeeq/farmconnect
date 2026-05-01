@@ -39,7 +39,6 @@ orderRoutes
   .route("/")
   .get(protect, restrictTo("admin"), getAllOrders)
   .post(protect, restrictTo("buyer", "admin"), createOrder);
-
 */
 
 export default orderRoutes;

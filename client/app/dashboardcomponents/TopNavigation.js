@@ -74,8 +74,8 @@ export function TopNavigation({ toggleSidebar, sidebarOpen }) {
             <DropdownMenuItem>Settings</DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem
-              className="text-red-600"
-              onClick={() => signOut({ callback: "/" })}
+              className="text-red-600 cursor-pointer"
+              onClick={() => signOut({ callbackUrl: "/" })}
             >
               Logout
             </DropdownMenuItem>

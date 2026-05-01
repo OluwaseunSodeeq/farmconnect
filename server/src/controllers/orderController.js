@@ -62,6 +62,7 @@ export const getAllOrders = async (req, res) => {
       .paginate();
 
     const orders = await features.query;
+    
     // const orders = await Order.find()
     //   .populate("buyer farmer farm")
     //   .populate("items.product");

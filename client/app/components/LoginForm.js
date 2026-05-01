@@ -16,6 +16,32 @@ export default function LoginForm() {
     router.prefetch("/dashboard");
   }, [router]);
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setError(null);
+  //   setIsLoading(true);
+
+  //   const result = await signIn("credentials", {
+  //     redirect: false,
+  //     email,
+  //     password,
+
+  //   });
+
+  //   if (result?.error) {
+  //     if (result.error === "CredentialsSignin") {
+  //       setError("Invalid email or password");
+  //     } else {
+  //       setError("Something went wrong. Please try again.");
+  //     }
+
+  //     setIsLoading(false);
+  //     return;
+  //   }
+
+  //   router.replace("/dashboard");
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
@@ -25,10 +51,12 @@ export default function LoginForm() {
       redirect: false,
       email,
       password,
+      callbackUrl: "/dashboard",
     });
 
-    if (result?.error) {
-      if (result.error === "CredentialsSignin") {
+    // ✅ Handle failed login safely
+    if (!result?.ok) {
+      if (result?.error === "CredentialsSignin") {
         setError("Invalid email or password");
       } else {
         setError("Something went wrong. Please try again.");
@@ -38,7 +66,11 @@ export default function LoginForm() {
       return;
     }
 
-    router.replace("/dashboard");
+    // ✅ Ensure session is synced before navigation
+    router.refresh();
+
+    // ✅ Navigate to dashboard
+    router.push(result.url || "/dashboard");
   };
 
   return (

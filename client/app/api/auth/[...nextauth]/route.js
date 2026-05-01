@@ -10,28 +10,31 @@ const handler = NextAuth({
         password: {},
       },
       async authorize(credentials) {
-        const res = await fetch(
-          `${process.env.BACK_API_BASE_URL}/api/v1/auth/login`,
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              email: credentials.email,
-              password: credentials.password,
-            }),
-          },
-        );
+        try {
+          const res = await fetch(
+            `${process.env.BACK_API_BASE_URL}/api/v1/auth/login`,
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                email: credentials.email,
+                password: credentials.password,
+              }),
+            },
+          );
+          if (!res.ok) return null;
+          const data = await res.json();
 
-        const data = await res.json();
+          if (!data?.data?.user || !data?.token) return null;
 
-        if (!res.ok) {
+          return {
+            ...data.data.user,
+            accessToken: data.token,
+          };
+        } catch (error) {
+          console.error("Authorize Error:", error);
           return null;
         }
-
-        return {
-          ...data.data.user,
-          accessToken: data.token,
-        };
       },
     }),
   ],
